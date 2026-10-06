@@ -35,218 +35,145 @@ Dokumentu honetan berriz, atariaren aurre-diseinua jaso da, benchmark-a, erebilt
 
 ## 2. Benchmark
 
-Sektoreko bost webgune aztertu dira, denak animalien babeserako erakundeenak, gure kasu-erabilera berdinekin (adopzioa, laguntza ekonomikoa, harrera-etxeak...). Nabigazioan, fitxetan, formularioetan, dohaintzan eta albisteetan arreta jarri da. Lan hau oso baliagarria izan da, jarraitu eta ekidin beharreko patroiak identifikatzeko.
+Sektoreko bost webgune aztertu dira, antzokiak eta zinemak tarteko, gure kasu-erabilera berdinekin (ekitaldien erakusleihoa, sarreren erosketa/salmenta eta kudeaketa). Nabigazioan, ekitaldien fitxetan, sarreren salmenta prozesuan eta bilaketa-sistemetan arreta jarri da. Lan hau oso baliagarria izan da, jarraitu eta ekidin beharreko patroiak identifikatzeko.
+
 Ondorengo webguneak aztertu dira:
 
-- **Gipuzkoako Animalien Babeslea** : [https://protectoradegipuzkoa.com/eu](https://protectoradegipuzkoa.com/eu)
-   - **Ona** : Elebiduna (eu/es) den webgune bakarra, garbia, intiutiboa, mugikorretik aritzeko eraginkorra da.
-   - **Ahula** : Bazkide egiteko estekak ez du funtzionaten, ez dago galdutako animalientzako atalik.
+- *Teatro Arriaga (Bilbo)*: [https://www.teatroarriaga.eus/](https://www.teatroarriaga.eus/)
+  - *Ona*: Diseinu dotorea eta klasikoa, antzoki baten izaera ondo islatzen duena. Elebiduna da (eu/es) eta ekitaldien fitxak oso osoak dira (sinopsia, fitxa artistikoa, argazkiak).
+  - *Ahula*: Batzuetan, sarrerak erosteko prozesuak pauso gehiegi ditu edo leiho berriak irekitzen ditu, erabiltzailearen esperientzia pixka bat trabatuz.
 
-- **Esperanza Felina** : [https://www.esperanzafelina.com/](https://www.esperanzafelina.com/)
-   - **Ona** : Adoptados, Ellos no lo lograron, atalekin, katu bakoitzaren istorioa ezagutu al da (sarrera, tratamendua, bilakaera, adopzioa, ...) hau oso eragingarria de emozionalki eta komunitatea sortzeko.
-   - **Ahula** : Mugikorretik aritzeko nekeza da.
-     
-- **Katubihotz** : [https://www.katubihotz.com/](https://www.katubihotz.com/)
-   - **Ona** : Cangurocat, izeneko zerbitzua eskeintzen du. Norberak zaindu ezin dituenean katuak, hauen zaintzarako zerbitzua.
-   - **Ahula** : Izena euskaraz baino orria gaztelera hutsean. Diseinu sinplea.
+- *Teatro Gayarre (Iruñea)*: [https://teatrogayarre.com/](https://teatrogayarre.com/)
+  - *Ona*: Egutegiaren ikuspegia oso argia da, hilabeteko ekitaldiak modu bisualean eta azkar batean ikusteko aukera emanez.
+  - *Ahula*: Mugikorretarako egokitzapenean (responsive) hutsuneak ditu, pantaila txikietan nabigatzea apur bat baldarra eginez.
 
-- **Adopciones La Granja de Labayru** : [https://www.adopcioneslagranja.com/](https://www.adopcioneslagranja.com/)
-  - **Ahula** : Guztiz zaharkitutako webgunea. Egin behar ez denaren adibidea
-    
-- **Felinos Bilbao** : [https://felinosbilbao.org](https://felinosbilbao.org)
-   - **Ona** : Dohaintza eskura, albisteak atala, animalien egoerari buruzko informazio sakona.
-   - **Ahula** : Orria gaztelera hutsean.
+- *Teatro de La Abadía (Madrid)*: [https://www.teatroabadia.com/](https://www.teatroabadia.com/)
+  - *Ona*: Irudiei eta ikus-entzunezkoei ematen zaien garrantzia handia da, ikuskizunak modu erakargarrian saltzen laguntzen duena. Diseinu oso modernoa du.
+  - *Ahula*: Nabigazio menua nahiko konplexua da eta informazio zehatza (esaterako, sarreren prezioak) lehen begiratuan aurkitzea kosta egiten da batzuetan.
+
+- *Teatro La Latina (Madrid)*: [https://www.teatrolalatina.es/](https://www.teatrolalatina.es/)
+  - *Ona*: Ikuspegi oso komertziala eta zuzena dauka. "Sarrerak Erosi" botoiak oso nabarmenak dira eta erosketa prozesura azkar bideratzen zaitu inolako zalantzarik gabe.
+  - *Ahula*: Hasierako orria informazioz eta kartelez gainezka dago, eta elementu larregi egoteak erabiltzailea nahastu dezake.
+
+- *Yelmo Cines*: [https://www.yelmocines.es/](https://www.yelmocines.es/)
+  - *Ona*: Sarreren kudeaketa eta erosketa prozesua izugarri garbia eta intuitiboa da. Eserlekuak aukeratzeko mapa interaktiboa oso ondo garatuta dago eta erosketa-pausoak bikainak dira.
+  - *Ahula*: Orri nagusian publizitate eta promozio gehiegi dago, benetako eduki nagusia (filmak) ezkutatzeraino.
 
 ### 2.1. Ondorioak
 
-- KatuEtxetik webgunea, EAE eta Nafarroan zentratuko da, beraz elebitasuna izango du ardatz (eu/es).
-- Animalien egoerari buruzko jarraipena burutuko da. Egoerak ezberdinduaz: Adoptagai, harreran, adoptatua.
-- Dohaintza beti eskura jarriko da.
-- Galdutako katuen atal desberdintzaile bat izango du. Aztertutako webgune batek ere ez du. Mapa geolokalizatu batekin  eta alerta publikoekin garatutakoa.
-- Prozesuaren gardentasuna: Adopzioaren, harreraren eta dohaintzaren pausoak, baldintzak eta kostuak argi eta garbi azalduaz.
-- Albisteak eta dibulgazio artikuluak jasoko dira.
+Azterketa honetatik abiatuta, Bergarako Antzokiaren webguneak honako puntu hauek hartuko ditu ardatz:
+
+- *Elebitasuna*: Euskara eta gaztelania egongo dira eskuragarri webgune osoan, hizkuntza batetik bestera aldatzeko aukera errazarekin.
+- *Sarreren erosketa integratua*: Yelmo Cinesen eta La Latinaren ereduari jarraituz, sarreren erosketa (edo erreserba) prozesua ahalik eta zuzenena eta intuitiboena izango da, eserlekuak modu garbian aukeratzeko maparekin.
+- *Ekitaldien egoera argia*: Ikuskizunen jarraipen bisuala egingo da ("Sarrerak salgai", "Azken sarrerak", "Agortuta"), kolore-kode argiak erabiliz.
+- *Bilatzaile zuzena*: Erabiltzaileek ekitaldiak erraz aurkitzeko aukera izango dute testu bidezko bilatzaile sinple baten bitartez, prozesua konplikatu gabe (beste webgune batzuetako menu konplexuak ekidinez).
+- *Kudeaketa panel sendoa (Backoffice)*: Erabiltzaileak (ikusleak) eta ekitaldiak administratzeko gune pribatu argi bat garatuko da, administrazio-lana arintzeko eta sarrerak ondo kudeatzeko.
+- *Informazioaren gardentasuna*: Ekitaldiaren fitxan datu tekniko guztiak (ordua, iraupena, prezioa) eta irudiak modu estrukturatuan eta ikusgarrian agertuko dira.
 
 <br>
 
 ## 3. User profila
 
-Webgunera hurbilduko den erabiltzailea anitza izango da, adin eta egoera sozio-ekonomiko definitu gabeko pertsona konprometitua. Gazteak orokorrean esperientzia handiarekin hurbilduko dira webgunera, baino bada perfil helduago bat, webguneekiko harreman txikia izanik nahikoa ezezagutzarekin hurbilduko dena. Hori dela eta webgunea burutzean erabilgarritasuna kontu handian hartuko da.<br><br>
-Erabiltzaileen artean bi profil nagusi identifikatu dira, lehena, erabiltzaile arrunta, webguneko bolumenaren zatirik handiena da, eta bigarrena berriz, administratzailea, webgunearen kudeaketaren arduradun nagusia.
+Webgunera hurbilduko den erabiltzailea anitza izango da, kultura eta antzerkia gogoko dituen adin zein egoera sozio-ekonomiko ezberdinetako pertsona multzoa. Batetik, gazteak eta adin tarte ertainekoak erraztasunez nabigatzeko eta sarrerak azkar erosteko asmoz hurbilduko dira. Bestetik, perfil helduago bat egongo da, ingurune digitalean trebetasun gutxiago duena baina programatutako antzezlanei buruzko informazioa bilatzen duena. Hori dela eta, webgunea burutzean erabilgarritasuna eta erabilera-erraztasuna kontu handiz zainduko dira.
+
+Erabiltzaileen artean hiru profil nagusi identifikatu dira:
+
+* **Bisitaria:** Webguneko trafikoaren zatirik handiena izango da. Antzokiko programazioa eta antzezlanei buruzko informazio xehea kontsultatu ahal izango du, bai eta sarrerak erosi ere.
+* **Erabiltzailea:** Webgunean erregistratuta dagoen pertsona da. Horri esker, sarrerak erosteko prozesu azkarragoa izateaz gain, bere erosketa-historiala edota lehentasunak kudeatu ahal izango ditu.
+* **Administratzailea:** Webgunearen kudeaketaren arduradun nagusia da. Bere eginkizun nagusiak sistema osoaren kudeaketa, erabiltzaileen administrazioa eta programaturiko antzezlan berrien sarrera zein eguneraketa izango dira.
 
 <br>
 
 ## 4. Krokisa
 
-Krokisa burutzean **Mobile first** izan da kontutan. Webgunearen erabilerarik ugariena mobil bidez izango dela uste bait da.
-Ondorengo irudietan jaso da webguneak izango duen eskema, bertan ez dira kontutan izan ez kolore, ez tipografia, etab. Hauek estilo-gida eta prototipoan zehaztuko bait dira.
+Krokisa burutzean **Mobile first** izan da kontuan, webgunearen erabilerarik ugariena mobil bidez izango dela uste baitda. Prototipo hauetan ez dira kontuan hartu ez koloreak ezta tipografiak ere; alderdi horiek estilo-gidan eta azken prototipoan zehaztuko baitira.
 
-### 4.1. Mobila
+Eskema eta krokis guztiak Google Driveko karpetetan gordeta daude ikusgai izateko:
 
-Mobileko krokisa burutzen erabilgarritasuna izan da kontutan. Hasierako pantailan izango den hamburger menuaz gain, mobileko web orri guztitan beheko nabigazio barra iraunkor bat jartzea erabaki da.
+### 4.1. Mugikorra
 
-Mobile prototipoa hasiera eta adopzio orrientzat:
+Atal honetan mugikorreko bertsiorako diseinatutako krokis guztiak aurki daitezke:
 
-![Mobile prototipoa, hasiera eta adopzioa](images/MobileKrokisaHasieraAdopzioa.jpg)
-
-Mobile prototipoa hasiera eta adopzio orrientzat:
-
-![Mobile prototipoa, katu fitxa eta alerta formularioa](images/MobileKrokisaKatuFitxaAlertaForm.jpg)
+- 📁 [Ikus mugikorreko krokisak Drive-ko karpetan](MUGIKORREKO_DRIVE_ESTEKA_HEMEN)
 
 ### 4.2. Eskritorioa
 
-Eskritorioan pantaila zabalera aprobetxatzen da, behin baino gehiagotan web orriak zutabetan ordenatuz.
-Orri guztietan goiburu bera definitu da, logoa, menua, bilaketa, dohaintza eta hizkuntza aukerak ezarriz. Footerra ere berdina izango da orri guztietan.
+Atal honetan ordenagailuko pantaila zabaletarako egokitutako krokis guztiak daude jasota:
 
-Eskritorio prototipoa, hasiera:
-
-![Eskritorio prototipoa, hasiera](images/EskritorioKrokisaHasiera.jpg)
-
-Eskritorio prototipoa, adopzioa:
-
-![Eskritorio prototipoa, adopzioa](images/EskritorioKrokisaAdopzioa.jpg)
+- 📁 [Ikus ordenagailuko krokisak Drive-ko karpetan](ORDENAGAILUKO_DRIVE_ESTEKA_HEMEN)
 
 <br>
 
 ## 5. Nabigazio mapa
 
-Webguneak sei orri izango ditu, hauek hiru mailatan banatuko dira:
+Webguneak ainbat orri izango ditu, hauek lau mailatan banatuko dira:
 
-1. Maila: Hasiera orria.
-2. Maila: Elkarte, adoptatu, alertak, lagundu eta albisteak.
-3. Maila: Animalien fitxa, alertaren fitxa (galera), alertaren fitxa (egoera aldaketa), harrera etxea parte hartu, bazkidetza formularioa, bankuko pasabidea, boluntaritza formularioa.
-4. Maila: Adopzio formularioa.
+1. Maila: Index orria.
+2. Maila: Logina edo register atalak eta hasierako orria.
+3. Maila: Erabiltzaile ezberdinen atalak.
+4. Maila: Erabiltzailek dituzten atalentzako bezte azpi atal batzuk.
 
 Webgunearen antolaketa eta nabigazioaren parte bat definitu da ondorengo irudian:
 
 ![Nabigazio mapa](images/katuetxetikNabigazioMapa.jpg)
 
-Irudian adierazitako loturez gain kontutan izan behar dira eman daitezken lotura (nabigazio) horizontal guztiak, webguneko orri guztitan dauden goiburutik eta bai footeretik aldi oro eman bait daitezke nabigazio horizontalak.
 
 <br>
 
 ## 6. Estilo gida
 
-Estilo gida honetan, **KatuEtxetik** , animaliak adoptatzeko, harrera-etxeak kudeatzeko eta galdutako maskotak lokalizatzeko ataria burutzeko jarraituko diren arau eta gomendioak jasoko dira.
-Bertan zehaztuko diren puntuak zehatz mehatz jarraitu beharko dira, web gune honetan ezer aportatu nahi bada.
+Estilo gida honetan, *Bergarako Antzokiaren* atari digitala garatzeko jarraituko diren arau eta gomendioak jasoko dira, kultur ekitaldiak zabaltzeko, sarreren salmenta kudeatzeko eta administrazio-panelak (erabiltzaileak, ekitaldiak) antolatzeko. Bertan zehaztuko diren puntuak zehatz-mehatz jarraitu beharko dira, webgune honetan koherentzia bisuala eta funtzionala bermatzeko.
+### 6.1. Koloreak
 
-### 6.1. Koloreak<br>
+Antzokiaren webgunerako, argitasuna eta funtzionaltasuna lehenetsi dira, kolore-paleta sinple baina eraginkor bat erabiliz. Diseinua garbia izango da, elementu garrantzitsuenak (botoiak, goiburuak) nabarmenduz eta atal administratiboetan irakurgarritasuna bermatuz:
 
-Katuak jaso, zaindu eta adoptatzeko webgune baterako, koloreen paletak, konfiantza, goxotasuna, lasaitasuna eta itxaropena transmititu behar ditu, tonu hotz edo erasokorrak saihestuz.
-Hau kontuan izanik, kolore bat esleitzeko, gida honek gaiei lotutako ondorengo kolore-paleta proposatzen du: 
+| Funtzioa | Kolorea | Hex Kodea | Helburua |
+| :--- | :--- | :--- | :--- |
+| *Identitatea* | Urdina | #2B53B8 | Goiburuan (header), orri-oinean (footer) eta webguneko botoi nagusietan erabiliko da. Itxura profesionala eta fidagarria ematen du. |
+| *Atzeko plano nagusia eta testu batzuk* | Zuria | #FFFFFF | Webgune osoaren atzeko planorako eta atzealde iluneko testuetarako. Espazio garbia eta irakurgarria bermatzen du. |
+| *Testu nagusia* | Beltza | #000000 | Webguneko testu gehienetarako (paragrafoak, izenburuak). Kontraste maximoa eskaintzen du atzeko plano zuriaren gainean. |
+| *Kudeaketa eta egitura* | Grisa | #D9D9D9 | Erabiltzaileen eta ekitaldien administrazio-tauletan, atzealde neutro gisa erabiltzeko. |
 
-| Funtzioa      | Kolorea    |  Hex Kodea     |  Sentsazioa / Helburua     |
-| :---          | :---       |     :----:     |  :---                      |
-| **Atzeko plano nagusia** | Krema, zuri beroa  | #FDFBF7  | Goxoa, garbia eta zuri purua baino leunagoa begietara |
-| **Kolore nagusia** | Laranja leuna, terrakota  | #E07A5F  | Beroa, goxotasuna eta katuen energia jostalaria gogorarazten ditu|
-| **Bigarren mailako kolorea** | Salbia-berdea  | #81B29A  | Osasuna, ongizatea, natura eta itxaropena transmititzen ditu |
-| **Testua eta egitura** | Ikatz-gris beroa  | #3D3A45  | Irakurgarritasun handia, beltz puruaren kontraste gogorrik gabe |
-| **Ekintzarako deiak** | Koral bizia  | #E76F51  | Botoi nagusiak nabarmentzen ditu (Adoptatu, Eman dohaintza, Izan harrera-etxea) |
+### 6.2. Tipografia
 
-![Kolore paleta](images/EstiloGidaKOLOREAK.jpg)
-![Kolore paleta Realtimes Colors ](images/EstiloGidaKoloreakRealtimeColors.png)
+Izenburuentzat izaera duten letra-tipo dotoreak (Serif) erabiliko dira, kulturaren pisua transmititzeko. Testu-gorputzerako eta kudeaketa-tauletarako, berriz, sans-serif garbi bat erabiliko da, datuak eta informazio teknikoa erraz irakurri ahal izateko.
 
-### 6.2. Tipografia<br>
+| Funtzioa | Izenburu eta izenak | Testu-gorputza | Estiloa eta sentsazioa |
+| :--- | :--- | :--- | :--- |
+| *Izenburu Nagusiak* | Playfair Display | Lato | Klasikoa eta dotorea, antzerki-kartelen estiloa gogorarazten duena. |
+| *Informazioa eta Taulak* | Montserrat | Roboto | Egituratua eta argia, datuak, egutegiak eta administrazio-panelak erakusteko. |
 
-Tipografiari dagokionez, web gune honetarako forma borobildu edo leunak dituen letra-tipo bat erabiliko da izenburuentzat, xarma eta irisgarritasuna transmititzeko. Eta sans-serif neutro bat testu-gorputzerako, katu fitxak eta beharrezko baldintzak erraz irakurri ahal izan daitezen. Konbinazio hauek Google Fonts-etik atera dira:
+*Irizpideak:*
+*   *Ikuskizunen izenak:* Izenburuko tipografia Bold (lodia) pisuarekin eta tamaina handian (gutxienez 24px - 32px) erabiliko da.
+*   *Datu teknikoak eta taulak:* Testu-gorputzeko iturria tamaina estandarrean (16px) erabiliko da. Tauletako goiburukoetan (izenburuak) Bold aplikatuko da nabarmentzeko.
+*   *Irakurgarritasuna botoi eta goiburuetan:* Atzealde urdinean (#2B53B8), testua beti zuriz (#FFFFFF) eta SemiBold edo Bold pisuarekin joango da.
 
-| Funtzioa      | Izenburu eta izenak    |  Testu-gorputza     |  Estiloa eta sentsazioa     |
-| :---          | :---                   |     :----:          |  :---                       |
-| **Beroa eta modernoa** | Nunito  | Inter edo Open Sans | Ertz leunduko letra-tipoak maitasuna helarazteko, testu garbi eta moderno batekin |
-| **Narratiboa eta emotiboa** | Lora  | Nunito Sans  | Serif iturriak istorioak modu intimo eta editorialagoan kontatzen laguntzen du. Katuak galdu/bilatu...|
-| **Hurbila eta Argia** | Rubik  | Roboto  | Egituratua, oso irakurgarria eta hurbila profesionaltasuna galdu gabe |
+### 6.3. Ikonoak
 
-**Katuen fitxetan erabiltzeko irizpideak:**
-- **Katuen izenak:** Izenburuko tipografia Bold (lodia) pisuarekin eta tamaina handian (gutxienez 24px - 32px) erabiliko da, fitxaren erdigunea izan dadin.
+Webgunearen itxura profesionala eta irisgarritasuna bermatzeko, *Lucide* liburutegiko ikonoak erabiliko dira orokorrean, ondorengo irizpide hauei jarraituz:
 
-- **Datu teknikoak (Adina, Sexua, Izaera, Osasuna):** Testu-gorputzeko iturria tamaina estandarrean (16px), etiketei Bold aplikatuz (adib., Izaera: Beldurti samarra baina oso goxoa) erabiliko da.
+*   *Estilo-koherentzia bateratua:* Webgune osoan, ikono familia bera erabiliko da. Lerro fin eta zehatzak dituzten ikonoak lehenetsiko dira.
+*   *Formatua, SVG nahitaez:* SVG formatua erabiliko da. Ez dute kalitaterik galtzen, oso gutxi pisatzen dute eta CSS bidez kolorea erraz aldatzeko aukera ematen dute.
+*   *Kolore-armonia:* Ikonoak zuriak (#FFFFFF) edota beltzak (#000000) izango dira orokorrean. Goiburuan, orri-oinean edo botoi urdinen barruan doazenean, zuriak izango dira. Kudeaketa tauletan (adibidez, editatu/ezabatu ekintzak), urdina erabil daiteke ekintza nabarmentzeko.
 
-- **Lerrorarteko tartea:** Linearen altuera (line-height) 1.5 eta 1.6 artean egokituko da testu-gorputzean, istorio luzeak erraz irakurri ahal izateko.
+### 6.4. Botoiak
 
-- **Irakurgarritasuna botoietan:** Terrakota edo koral koloredun botoietan, letra zuria eta SemiBold edo Bold pisuarekin erabiliko da, kontraste egokia bermatzeko.
+| Botoi Mota | Kolorea | Testuaren kolorea | Erabilera |
+| :--- | :--- | :--- | :--- |
+| *Nagusiak* | Urdina | Zuria | Ekintza garrantzitsuenetarako (Sarrerak erosi, Ekitaldia gorde, Erabiltzailea sortu) |
+| *Sarrerak gehitu edo kendu* | Grisa | Beltza | Erosi nahi dituzun sarrerak gehitu edota kentzeko |
 
-### 6.3. Ikonoak<br>
+*Estiloa, forma eta interaktibitatea:*
+*   *Ertzak:* Botoien ertza arinki borobildua izango da (border-radius: 4px eta 6px artean). Forma karratuago honek seriotasuna ematen dio administrazio-panelari.
+*   *Hover (sagua gainean dela):* Botoi urdinaren kolorea %10 ilunduko da eta botoiak itzal leun bat hartuko du zentzu sakona emateko.
 
-Webguneak itxura profesionala, atsegina eta irisgarria izateko, ikonoek irizpide hauek bete behar dituzte:
+### 6.5. Irudiak
 
-- **Estilo-koherentzia bateratua:**
+Bergarako Antzokiaren webgunean, argazkiek zirrara eta ikuskizunaren magia helarazi behar dituzte. Irudiek kolorea ekarriko diote webguneari, diseinu orokorra oso garbia eta zuria/urdina denez, argazkiek bereganatuko baitute ikuslearen arreta.
 
-   - Webgune osoan, ikono familia bera erabiliko da.
-
-   - Ertz borobildudun ikonoak erabiliko dira, tipografiarako gomendatutako estiloarekin bat egiteko.
-
-- **Argitasuna eta intuitibotasuna:**
-
-   - Ikonoa berez ulertu behar da.
-  
-- **Formatua, SVG nahitaez:**
-
-   - SVG formatua (PNG edo JPG-ren ordez) erabiliko da. SVG fitxategiek ez dute kalitaterik galtzen pantaila handietan, oso gutxi pisatzen dute eta CSS bidez kolorea erraz aldatzeko aukera ematen dute.
-
-- **Kolore-armonia:**
-
-   - Erabili kolore bakarreko ikonoak, aurreikusitako paletako tonuak erabiliz: ikatz-grisa (#3D3A45), salbia berdea (#81B29A) edo terrakota (#E07A5F).
-
-- **Irisgarritasuna:**
-
-   - Botoietan edo katuen fitxetan ikonoak jartzean, kontraste nahikoa izan behar dute atzealdearekin.
-
-   - Ikusmen-desgaitasuna duten pertsonentzat pantaila-irakurleek ikonoa irakurtzeko, ikono bakoitzak bere aria-label edo alt atributua izatea beharrezkoa da.
-
-
-Aurreko atalean definitutako tipografia kontuan izanik, webguneko ikonoek ondorengo tamaina izan beharko dute. Horrela, testuaren eta ikonoaren arteko oreka bisuala lortuko da:
-
-- **16px testurako,** ikono-tamaina: 20px × 20px (edo gehienez 24px × 24px).
-
-- **24 - 32px testurako,** ikono-tamaina: 28px × 28px (edo gehienez 32px × 32px).
-
-### 6.4. Botoiak<br>
-
-- **Botoi-hierarkia eta koloreak:**
-
-| Botoi mota      | Kolorea    |  Textuaren kolorea     |  Erabilera     |
-| :---          | :---       |     :----:     |  :---                      |
-| **Nagusia** | Koral bizia (#E76F51)  | Zuria (#FFFFFF)  | Webguneko ekintza garrantzitsuenetarako (adopzioa, dohaintza,...) |
-| **Bigarren mailakoa** | Salbia Berdea (#81B29A)  | Zuria (#FFFFFF) edo Ikatz-grisa (#3D3A45)  | Bigarren mailako ekintzetarako (fitxa ikusi, iragazi, harrera-informazioa)|
-| **Premiazkoa** | Terrakota (#E07A5F)  | Zuria (#FFFFFF)  | Premiazko harrera-etxeak edo kasu larriak nabarmentzeko |
-| **Ezgaitua (Disabled)** | Gris Argia (#E0E0E0)  | Ikatz-grisa (#3D3A45)  | Adib: Formularioan nahitaezko datuak bete gabe daudenean |
-
-- **Botoien tamainak eta neurri teknikoak:**
-
-| Tamaina        | Altuera       |  Padding-a                     |  Testu-tamaina     |
-| :---           | :---          |     :----:                     |  :---              |
-| **Handia(L)** | 48px – 52px  | 14px goian/behean, 28px alboetan  | 18px (SemiBold) |
-| **Ertaina(M)** | 40px – 44px  | 10px goian/behean, 20px alboetan | 16px (SemiBold) |
-| **Txikia(S)** | 32px – 36px  | 6px goian/behean, 14px alboetan | 14px (Medium) |
-
-- **Estiloa, forma eta tipografia:**
-  
-   - Botoien ertza borobildua izango da (border-radius): 8px eta 12px artean. Ertz borobilduak goxoagoak eta hurbilagoak dira.
-
-   - Ikonoak botoietan: Botoi nagusietan ikono bat jartzen bada, testuaren ezkerrean jarri behar da, 8px-ko tartearekin (gap: 8px).
-
-- **Interaktibitatea (Micro-interactions):**
-
-Botoi batek bizia dela erakutsi behar du sagua gainetik pasatzean edo sakatzean:
-
-   - Hover (sagua gainean dela): Kolorea %10 ilundu eta botoia 2px igotzea itzal leun bat gehituz.
-
-   - Active (sakatzean): Botoia 1px beherantz sakatu dela simulatuko da.
-
-### 6.5. Irudiak<br>
-
-Katuen adopzio webgune batean, hauen argazkiek emozioa piztu eta konfiantza helarazi behar dute, horretarako, argi naturala eta tonu beroak erabiliko dira argazkitan, koloretan bezala hotzak sahiestuaz. Hala nola, giro etxekoia, pertsonalizazioa, duintasuna eman beharko zaie argazki hauei.
-
-- **Erabilgarritasunari** dagokionez:
-  
-   - Webp edo AVIF formatuan landuko dira irudiak. JPG edo PNG formatuen kalitate bera eskaitzen dute, baina pisu gutxiagorekin.
-
-   - Irudiek gutxi okupatu behar dute (100 - 150 KB). Webguneak 2 segunduren azpitik kargatu behar du mugikorretan.
-
-   - Resoluzioa ere zaindu behar da pantailetan ikusteko balio estandarra erabiliz.
-
-- **Irisgarritasunari** dagokionez berriz:
-
-     - Pantaila-irakurleak erabiltzen dituzten pertsonentzat zein Google-n kokatzeko, argazki bakoitzak deskribapen testua (alt) izan behar du.
+*Erabilgarritasunari dagokionez:*
+*   *WebP edo AVIF formatuan* landuko dira irudiak pisu gutxiago izan dezaten.
+*   Irudiek gutxi okupatu behar dute (100 - 150 KB bitartean fitxa barruko irudientzat, eta gehienez 300 KB banner nagusientzat). Webguneak 2 segundoren azpitik kargatu behar du gailu mugikorretan.
 
 <br>
 
@@ -258,6 +185,16 @@ Prototipoa Figma.com IAren bidez burutu da, eta ondorengo estekan aurkitzen da: 
 
 ## 8. Edukien lizentzia
 
+Lan hau **Creative Commons Atribuzioa-Ez Komertziala-Partekatu Berdin 4.0 Nazioarteko Lizentziapean (CC BY-NC-SA 4.0)** dago.
+
+- **Aitortza (BY):** Egilearen izena edo taldea aipatu behar da.  
+- **Ez Komertziala (NC):** Ezin da erabili helburu komertzialetarako.  
+- **Partekatu Berdin (SA):** Deribatutako lanek lizentzia bera mantendu behar dute.
+
+**© Slayter.**
+
+[Ikusi lizentzia osoa](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.eu)
+
 Edukien lizentziari dagokionez, ondorengo lerrotan jasota geratzen da erabiliko diren lizentzia iturriak:
 
 - **Tipografia:**
@@ -266,44 +203,30 @@ Edukien lizentziari dagokionez, ondorengo lerrotan jasota geratzen da erabiliko 
 
 - **Ikonoak:**
 
-  BootStrap Icons erabiliko da. Hau 2000 ikonoz goraztik osatutako kode irekiko, dohakoa eta kalitate handiko erraminta da.
+  Lucide Icons erabiliko da. Hau 2000 ikonoz goraztik osatutako kode irekiko, dohakoa eta kalitate handiko erraminta da.
   
 - **Irudiak:**
 
-  Webgune honetarako irudi portzentai handiena katuena izango da, hauen argazkiak, eta KatuEtxetik Animalien Babesleen Sareko langileek burututakoak izango dira. Hauen lizentzia Creative Commons erakoa izango da CC BY-NC-ND 4.0.
-
-  Bestelako argazkiak berriz ondorengo webguneetatik jasoko dira: [Unsplash.com](https://unsplash.com/es) , [Pixabay](https://pixabay.com/es/), [Pexels](https://www.pexels.com/es-es/) Hauek lizentzia propiodunak eta dohakoak izango dira.
+   Webgune onetako irudi gehienak, administratzaileek sarturiko ekitaldien kartelak izango dira, beraz ez dira guk sortuak izango. Alaber, adibideak sortzeko edo garapenean zehar, gure batzuk erabiliko dira; AA-k sorturiko irudiak erabiliko dira, alanola, iconorenbat, logorenbat edo kartel bat sortzeko.
 
   <br>
 
 ## 9. Erabilgarritasunaren azterketa
 
-   KatuEtxetik webgunea garatzean erabilgarritasuna ardatz nagusietako bat izango da, erabiltzaile-profil anitza (gazteak eta weberako ohitura gutxiko pertsona helduak) kontuan hartuta.
+Bergarako antzokiko webgunea garatzean erabilgarritasuna ardatz nagusietako bat izango da, erabiltzaile guztiek (izan gazte zein heldu) webgunea modu erraz eta intuitiboan erabili ahal izateko.
 
-Kontuan hartu beharrekoak:
+Kontuan hartu beharreko alderdi nagusiak:
 
-   ISO 9241-11: efikazia (animalien babesleen sareak eta erabiltzaileak bere helburua lortzea: adoptatu, alerta sortu, dohaintza egin), efizientzia (klik eta esfortzu gutxi) eta gogobetetasuna (esperientzia positiboa).
-Nielsenen 10 heuristikoak: egoeraren ikusgarritasuna, hizkuntza ulergarria, kontrola eta askatasuna, koherentzia, erabilera malgutasuna, erroreen prebentzioa, menuak ikusgai, diseinu minimalista, akatsen konponbidea eta laguntza FAQ.
-
-   Gaur egunera egokitzeko ere kontutan izan dira:
-   
-- Irisgarritasuna: alt testuak, aria-label atributuak, kontraste nahikoa eta teklatuarekin nabigatzeko aukera.
-  
-- Mobile first eta abiadura: botoi handiak, beheko nabigazio barra iraunkorra, irudi arinak (WebP/AVIF) eta 2 segundo azpiko karga.
-  
-- Irakurketa-ereduak: informazio garrantzitsuena eta ekintza-deiak toki egokian jarriko dira.
+* **Navigazio erraza eta argia:** Webgunearen egitura sinplea izatea, edozein erabiltzailek berehala aurki dezan bilatzen duen antzezlana edo informazioa.
+* **Sarrerak erosteko prozesu azkarra:** Erosketa urrats gutxitan eta modu argian egitea, konplikaziorik gabe.
+* **Irisgarritasuna:** Testuak irakurtzeko errazak izatea eta botoiak zein aukerak ondo ikustea, edonorentzat egokia izateko.
+* **Diseinu moldagarria (Mobile First):** Webguneak mugikorrean zein ordenagailuan era egokian funtzionatzea eta azkar kargatzea.
 
 Emango diren pausoak:
 
-- Analisi heuristikoa: prototipoa Nielsenen 10 printzipioen arabera berrikusi, eta aurkitutako arazoak zuzendu.
-  
-- Irisgarritasun-berrikuspena: kontrastea, testu-tamainak eta alt testuak egiaztatu, batez ere testu txiki eta grisetan.
-  
-- Erabiltzaile testak: 5 erabiltzailerekin (profil gazteak eta helduak nahastuz) zeregin zehatzak proposatu: katu bat adoptatzeko prozesua hasi, galdutako maskota baten alerta sortu eta dohaintza egin. Horrela arazoen %85 inguru detektatuko da.
-  
-- Gogobetetasun inkesta: SUS galdetegia pasatu proba ondoren.
-  
-Hobekuntzak eta berriz probatzea: emaitzen arabera diseinua doitu eta aldaketak berrikusi.
+* **Egoeraren berrikuspena:** Webgunearen diseinua aztertzea nabigazioa eta testuen irakurgarritasuna egokiak direla ziurtatzeko.
+* **Erabilera-probak:** Erabiltzaile ezberdinekin webgunea probatzea, antzezlanak bilatzeko eta sarrerak erosteko prozesua erraza dela egiaztatzeko.
+* **Etengabeko hobekuntzak:** Izandako zailtasunak edo jasotako iritziak kontuan hartuta, webgunea doitu eta hobetzea esperientzia hobea eskaintzeko.
 
 <br>
 
