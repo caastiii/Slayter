@@ -88,7 +88,7 @@ Erabiltzaileen artean hiru profil nagusi identifikatu dira:
 
 Krokisa burutzean **Mobile first** izan da kontuan, webgunearen erabilerarik ugariena mobil bidez izango dela uste baitda. Prototipo hauetan ez dira kontuan hartu ez koloreak ezta tipografiak ere; alderdi horiek estilo-gidan eta azken prototipoan zehaztuko baitira.
 
-Eskema eta krokis guztiak Google Driveko karpetetan gordeta daude ikusgai izateko:
+Eskema eta krokis guztiak **Aurreproiektuko** karpetetan gordeta daude ikusgai izateko:
 
 ### 4.1. Mugikorra
 
@@ -217,7 +217,7 @@ Edukien lizentziari dagokionez, ondorengo lerrotan jasota geratzen da erabiliko 
   
 - **Irudiak:**
 
-   Webgune onetako irudi gehienak, administratzaileek sarturiko ekitaldien kartelak izango dira, beraz ez dira guk sortuak izango. Alaber, adibideak sortzeko edo garapenean zehar, gure batzuk erabiliko dira; AA-k sorturiko irudiak erabiliko dira, alanola, iconorenbat, logorenbat edo kartel bat sortzeko.
+   Webgune onetako irudi gehienak, administratzaileek sarturiko ekitaldien kartelak izango dira, beraz ez dira guk sortuak izango. Alaber, adibideak sortzeko edo garapenean zehar, gure batzuk erabiliko dira; AA-k sorturiko irudiak erabiliko dira, alanola, ikonorenbat, logorenbat edo kartel bat sortzeko.
 
   <br>
 
@@ -227,7 +227,7 @@ Bergarako antzokiko webgunea garatzean erabilgarritasuna ardatz nagusietako bat 
 
 Kontuan hartu beharreko alderdi nagusiak:
 
-* **Navigazio erraza eta argia:** Webgunearen egitura sinplea izatea, edozein erabiltzailek berehala aurki dezan bilatzen duen antzezlana edo informazioa.
+* **Nabigazio erraza eta argia:** Webgunearen egitura sinplea izatea, edozein erabiltzailek berehala aurki dezan bilatzen duen antzezlana edo informazioa.
 * **Sarrerak erosteko prozesu azkarra:** Erosketa urrats gutxitan eta modu argian egitea, konplikaziorik gabe.
 * **Irisgarritasuna:** Testuak irakurtzeko errazak izatea eta botoiak zein aukerak ondo ikustea, edonorentzat egokia izateko.
 * **Diseinu moldagarria (Mobile First):** Webguneak mugikorrean zein ordenagailuan era egokian funtzionatzea eta azkar kargatzea.
