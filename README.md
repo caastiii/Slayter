@@ -10,7 +10,7 @@ Slayter taldea, Bergarako Antzokiaren webgunea garatzen.
    2.1. [Ondorioak](#21-ondorioak)
 3. [User profila](#3-user-profila)
 4. [Krokisa](#4-krokisa)       
-   4.1. [Mobila](#41-mobila)<br>
+   4.1. [Mobila](##41-mugikorra)<br>
    4.2. [Eskritorioa](#42-eskritorioa)
 5. [Nabigazio mapa](#5-nabigazio-mapa)
 6. [Estilo gida](#6-estilo-gida)     
@@ -94,13 +94,13 @@ Eskema eta krokis guztiak Google Driveko karpetetan gordeta daude ikusgai izatek
 
 Atal honetan mugikorreko bertsiorako diseinatutako krokis guztiak aurki daitezke:
 
-- 📁 [Ikus mugikorreko krokisak Drive-ko karpetan](MUGIKORREKO_DRIVE_ESTEKA_HEMEN)
+- 📁 [Ikus mugikorreko krokisak githubeko karpetan](Aurreproiektua/1.Eranskina_%20Web%20orrialdeen%20bozetoa%2C%20nabigazio%20mapa%2C%20estilo%20gida%20eta%20prototipoa/Zirriborroa/Mobile)
 
 ### 4.2. Eskritorioa
 
 Atal honetan ordenagailuko pantaila zabaletarako egokitutako krokis guztiak daude jasota:
 
-- 📁 [Ikus ordenagailuko krokisak Drive-ko karpetan](ORDENAGAILUKO_DRIVE_ESTEKA_HEMEN)
+- 📁 [Ikus ordenagailuko krokisak githubeko karpetan](Aurreproiektua/1.Eranskina_%20Web%20orrialdeen%20bozetoa%2C%20nabigazio%20mapa%2C%20estilo%20gida%20eta%20prototipoa/Zirriborroa/Desktop)
 
 <br>
 
@@ -115,7 +115,7 @@ Webguneak ainbat orri izango ditu, hauek lau mailatan banatuko dira:
 
 Webgunearen antolaketa eta nabigazioaren parte bat definitu da ondorengo irudian:
 
-![Nabigazio mapa](images/katuetxetikNabigazioMapa.jpg)
+![Nabigazio mapa](https://github.com/caastiii/Slayter/blob/main/Aurreproiektua/1.Eranskina_%20Web%20orrialdeen%20bozetoa%2C%20nabigazio%20mapa%2C%20estilo%20gida%20eta%20prototipoa/NabigazioMapa/NabigazioMapa.pdf)
 
 
 <br>
@@ -179,7 +179,17 @@ Bergarako Antzokiaren webgunean, argazkiek zirrara eta ikuskizunaren magia helar
 
 ## 7. Prototipoa
 
-Prototipoa Figma.com IAren bidez burutu da, eta ondorengo estekan aurkitzen da: [Figma prototipoa](https://www.figma.com/files/folder/573773369)
+### 7.1. Mugikorra
+
+Atal honetan mugikorreko bertsiorako diseinatutako prototipoak aurki daitezke:
+
+- 📁 [Ikus mugikorreko prototipoa githubeko karpetan](Aurreproiektua/1.Eranskina_%20Web%20orrialdeen%20bozetoa%2C%20nabigazio%20mapa%2C%20estilo%20gida%20eta%20prototipoa/Prototipoa/Mobile)
+
+### 7.2. Eskritorioa
+
+Atal honetan ordenagailuko pantaila zabaletarako egokitutako prototipoak daude jasota:
+
+- 📁 [Ikus ordenagailuko prototipoa githubeko karpetan](Aurreproiektua/1.Eranskina_%20Web%20orrialdeen%20bozetoa%2C%20nabigazio%20mapa%2C%20estilo%20gida%20eta%20prototipoa/Prototipoa/Desktop)
 
 <br>
 
@@ -232,22 +242,19 @@ Emango diren pausoak:
 
 ## 10. Bibliografia eta webgrafia
 
-KatuEtxetik webgunearen diseinua burutzerako orduan, ondorengo iturriak kontsultatu dira:
+Bergarako Antzokiaren webgunearen diseinua burutzerako orduan, ondorengo iturriak kontsultatu dira:
 
-- Erabilgarritasuna, diseinu-printzipioak, irisgarritasuna, estilo-gida, tipografia eta baliabide teknikoak:
+*Erabilgarritasuna, diseinu-printzipioak, irisgarritasuna, estilo-gida, tipografia eta baliabide teknikoak:*
+*   Miguel Altuna Lanbide Heziketa (2026-2027) ikasmateriala.
+*   *Tipografia:* [Google Fonts](https://fonts.google.com/)
+*   *Koloreak:* [HTML Color Codes](https://htmlcolorcodes.com/es/)
+*   *Irudiak:* Oraingoz Gemini bidez sortuak - [Google Gemini](https://gemini.google.com/)
+*   *Ikonoak:* [Lucide Icons](https://lucide.dev/)
+*   *Adimen Artifiziala:* [AA Figma](https://www.figma.com/), [AA Gemini](https://gemini.google.com/)
 
-   - Miguel Altuna Lanbide Heziketa (2026-2027) ikasmateriala.
-   - Tipografia: [Google Fonts](https://fonts.google.com/)
-   - Koloreak: [Realtimecolors](https://www.realtimecolors.com/)
-   - Irudiak: [Unsplash.com](https://unsplash.com/es) , [Pixabay](https://pixabay.com/es/), [Pexels](https://www.pexels.com/es-es/)
-   - Ikonoak: [BootStrap Icons](https://icons.getbootstrap.com/)
-   - [IA Figma](https://www.figma.com/)
-   - [IA Claude](https://claude.ai/)
- 
-- Benchmarka (aztertutako webguneak)
-
-  - [Gipuzkoako Animalien Babeslea](https://protectoradegipuzkoa.com/eu)
-  - [Esperanza Felina](https://www.esperanzafelina.com/)
-  - [Katubihotz](https://www.katubihotz.com/)
-  - [Adopciones La Granja de Labayru](https://www.adopcioneslagranja.com/)
-  - [Felinos Bilbao](https://felinosbilbao.org)
+*Benchmarka (aztertutako webguneak):*
+*   [Teatro Arriaga (Bilbo)](https://www.teatroarriaga.eus/)
+*   [Teatro Gayarre (Iruñea)](https://teatrogayarre.com/)
+*   [Teatro de La Abadía (Madril)](https://www.teatroabadia.com/)
+*   [Teatro La Latina (Madril)](https://www.teatrolalatina.es/)
+*   [Yelmo Cines](https://www.yelmocines.es/)
