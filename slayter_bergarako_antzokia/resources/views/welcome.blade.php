@@ -24,4 +24,8 @@
         </main>
 
     </body>
+
+    <!-- Footer -->
+    <x-footer />
+    
 </html>

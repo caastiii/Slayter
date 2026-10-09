@@ -13,4 +13,7 @@
             </div>
         </div>
     </div>
+
+    <!-- Footer -->
+    <x-footer />
 </x-app-layout>
