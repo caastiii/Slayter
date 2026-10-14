@@ -183,13 +183,13 @@ Bergarako Antzokiaren webgunean, argazkiek zirrara eta ikuskizunaren magia helar
 
 Atal honetan mugikorreko bertsiorako diseinatutako prototipoak aurki daitezke:
 
-- 📁 [Ikus mugikorreko prototipoa githubeko karpetan]([Aurreproiektua/1.Eranskina_%20Web%20orrialdeen%20bozetoa%2C%20nabigazio%20mapa%2C%20estilo%20gida%20eta%20prototipoa/Prototipoa/Mobile](https://www.figma.com/make/WMfwRjxCtWfKLq9XuSa5WF/Convertir-dise%C3%B1o-en-prototipo?t=1coQWZQPIseaZ40x-1))
+- 📁 [Ikus mugikorreko prototipoa githubeko karpetan]((https://www.figma.com/make/WMfwRjxCtWfKLq9XuSa5WF/Convertir-dise%C3%B1o-en-prototipo?t=1coQWZQPIseaZ40x-1))
 
 ### 7.2. Eskritorioa
 
 Atal honetan ordenagailuko pantaila zabaletarako egokitutako prototipoak daude jasota:
 
-- 📁 [Ikus ordenagailuko prototipoa githubeko karpetan]([Aurreproiektua/1.Eranskina_%20Web%20orrialdeen%20bozetoa%2C%20nabigazio%20mapa%2C%20estilo%20gida%20eta%20prototipoa/Prototipoa/Desktop](https://www.figma.com/make/WMfwRjxCtWfKLq9XuSa5WF/Convertir-dise%C3%B1o-en-prototipo?t=1coQWZQPIseaZ40x-1))
+- 📁 [Ikus ordenagailuko prototipoa githubeko karpetan]((https://www.figma.com/make/WMfwRjxCtWfKLq9XuSa5WF/Convertir-dise%C3%B1o-en-prototipo?t=1coQWZQPIseaZ40x-1))
 
 <br>
 
