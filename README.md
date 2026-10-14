@@ -183,13 +183,13 @@ Bergarako Antzokiaren webgunean, argazkiek zirrara eta ikuskizunaren magia helar
 
 Atal honetan mugikorreko bertsiorako diseinatutako prototipoak aurki daitezke:
 
-- 📁 [Ikus mugikorreko prototipoa githubeko karpetan]((https://www.figma.com/make/WMfwRjxCtWfKLq9XuSa5WF/Convertir-dise%C3%B1o-en-prototipo?t=1coQWZQPIseaZ40x-1))
+- 📁 [Ikus mugikorreko prototipoa Figman](https://www.figma.com/make/WMfwRjxCtWfKLq9XuSa5WF/Convertir-dise%C3%B1o-en-prototipo?t=1coQWZQPIseaZ40x-1)
 
 ### 7.2. Eskritorioa
 
 Atal honetan ordenagailuko pantaila zabaletarako egokitutako prototipoak daude jasota:
 
-- 📁 [Ikus ordenagailuko prototipoa githubeko karpetan]((https://www.figma.com/make/WMfwRjxCtWfKLq9XuSa5WF/Convertir-dise%C3%B1o-en-prototipo?t=1coQWZQPIseaZ40x-1))
+- 📁 [Ikus ordenagailuko prototipoa Figman](https://www.figma.com/make/WMfwRjxCtWfKLq9XuSa5WF/Convertir-dise%C3%B1o-en-prototipo?t=1coQWZQPIseaZ40x-1)
 
 <br>
 
