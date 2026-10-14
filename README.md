@@ -181,9 +181,15 @@ Bergarako Antzokiaren webgunean, argazkiek zirrara eta ikuskizunaren magia helar
 
 ### 7.1. Mugikorra
 
-Atal honetan diseinatutako prototipoak aurki daitezke:
+Atal honetan mugikorreko bertsiorako diseinatutako prototipoak aurki daitezke:
 
-- 📁 [Ikusi prototipoa Figman](https://www.figma.com/make/WMfwRjxCtWfKLq9XuSa5WF/Slayter-ko-Prototipoa?fullscreen=1&t=Rml9qEWOs9J8rXGA-1&code-node-id=0-6)
+- 📁 [Ikus mugikorreko prototipoa Figman](https://www.figma.com/make/UBuukcWTm4BLpJ94ZyMtvm/Slayter-ko-Prototipoa--Mugikorra-?fullscreen=1&t=mCH42ZVbqE08aDPh-1&code-node-id=0-6)
+
+### 7.2. Eskritorioa
+
+Atal honetan ordenagailuko pantaila zabaletarako egokitutako prototipoak daude jasota:
+
+- 📁 [Ikus ordenagailuko prototipoa Figman](https://www.figma.com/make/WMfwRjxCtWfKLq9XuSa5WF/Slayter-ko-Prototipoa?fullscreen=1&t=WFwsmSHsshZqa3hu-1&code-node-id=0-6)
 
 <br>
 
