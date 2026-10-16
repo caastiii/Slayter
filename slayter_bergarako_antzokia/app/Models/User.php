@@ -9,22 +9,27 @@ class User extends Authenticatable
 {
     use Notifiable;
 
-    // Si quieres usar tus propios nombres para login en vez de los de Laravel por defecto:
-    public function getAuthPassword() { return $this->Pasahitza; }
-    public function getAuthIdentifierName() { return 'Korreoa'; }
-
     protected $fillable = [
-        'Izena',
+        'name',
         'Abizena',
         'Mota',
-        'Korreoa',
-        'Pasahitza',
+        'email',
+        'password',
         'id_sortzailea',
     ];
 
     protected $hidden = [
-        'Pasahitza',
+        'password',
+        'remember_token',
     ];
+
+    protected function casts(): array
+    {
+        return [
+            'email_verified_at' => 'datetime',
+            'password' => 'hashed',
+        ];
+    }
 
     // Un usuario puede haber sido creado por otro usuario
     public function sortzailea()

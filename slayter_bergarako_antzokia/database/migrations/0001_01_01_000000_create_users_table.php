@@ -14,11 +14,11 @@ return new class extends Migration
         // 1. Tu tabla de usuarios
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('Izena', 100);
-            $table->string('Abizena', 100);
+            $table->string('name', 100);
+            $table->string('Abizena', 100)->nullable();
             $table->enum('Mota', ['Admin', 'Arrunta'])->default('Arrunta');
-            $table->string('Korreoa', 150)->unique();
-            $table->string('Pasahitza', 255);
+            $table->string('email', 150)->unique();
+            $table->string('password', 255);
             $table->unsignedBigInteger('id_sortzailea')->nullable();
             $table->rememberToken(); // Necesario para la funcionalidad de "Recordarme"
             $table->timestamps();
