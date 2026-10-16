@@ -183,13 +183,13 @@ Bergarako Antzokiaren webgunean, argazkiek zirrara eta ikuskizunaren magia helar
 
 Atal honetan mugikorreko bertsiorako diseinatutako prototipoak aurki daitezke:
 
-- 📁 [Ikus mugikorreko prototipoa githubeko karpetan](Aurreproiektua/1.Eranskina_%20Web%20orrialdeen%20bozetoa%2C%20nabigazio%20mapa%2C%20estilo%20gida%20eta%20prototipoa/Prototipoa/Mobile)
+- 📁 [Ikus mugikorreko prototipoa Figman](https://www.figma.com/make/UBuukcWTm4BLpJ94ZyMtvm/Slayter-ko-Prototipoa--Mugikorra-?fullscreen=1&t=mCH42ZVbqE08aDPh-1&code-node-id=0-6)
 
 ### 7.2. Eskritorioa
 
 Atal honetan ordenagailuko pantaila zabaletarako egokitutako prototipoak daude jasota:
 
-- 📁 [Ikus ordenagailuko prototipoa githubeko karpetan](Aurreproiektua/1.Eranskina_%20Web%20orrialdeen%20bozetoa%2C%20nabigazio%20mapa%2C%20estilo%20gida%20eta%20prototipoa/Prototipoa/Desktop)
+- 📁 [Ikus ordenagailuko prototipoa Figman](https://www.figma.com/make/WMfwRjxCtWfKLq9XuSa5WF/Slayter-ko-Prototipoa?fullscreen=1&t=WFwsmSHsshZqa3hu-1&code-node-id=0-6)
 
 <br>
 
