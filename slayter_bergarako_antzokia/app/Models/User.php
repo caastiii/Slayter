@@ -2,31 +2,45 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Database\Factories\UserFactory;
-use Illuminate\Database\Eloquent\Attributes\Fillable;
-use Illuminate\Database\Eloquent\Attributes\Hidden;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-#[Fillable(['name', 'email', 'password'])]
-#[Hidden(['password', 'remember_token'])]
 class User extends Authenticatable
 {
-    /** @use HasFactory<UserFactory> */
-    use HasFactory, Notifiable;
+    use Notifiable;
 
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
-    protected function casts(): array
+    // Si quieres usar tus propios nombres para login en vez de los de Laravel por defecto:
+    public function getAuthPassword() { return $this->Pasahitza; }
+    public function getAuthIdentifierName() { return 'Korreoa'; }
+
+    protected $fillable = [
+        'Izena',
+        'Abizena',
+        'Mota',
+        'Korreoa',
+        'Pasahitza',
+        'id_sortzailea',
+    ];
+
+    protected $hidden = [
+        'Pasahitza',
+    ];
+
+    // Un usuario puede haber sido creado por otro usuario
+    public function sortzailea()
     {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
+        return $this->belongsTo(User::class, 'id_sortzailea');
+    }
+
+    // Un usuario (Admin) puede crear muchos eventos
+    public function ekitaldiak()
+    {
+        return $this->hasMany(Ekitaldia::class, 'id_sortzailea');
+    }
+
+    // Un usuario puede comprar muchas entradas
+    public function sarrerak()
+    {
+        return $this->hasMany(Sarrera::class, 'id_erabiltzaile');
     }
 }
