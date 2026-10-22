@@ -1,12 +1,10 @@
 <?php
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 class Ekitaldia extends Model
 {
-    // Forzamos el nombre de la tabla para que no lo pluralice en inglés a "ekitaldias"
     protected $table = 'ekitaldiak';
 
     protected $fillable = [
@@ -22,13 +20,21 @@ class Ekitaldia extends Model
         'id_sortzailea',
     ];
 
-    // El evento pertenece a un usuario creador
+    /**
+     * Conversión automática de tipos de datos.
+     */
+    protected $casts = [
+        'ekitaldi_data' => 'date',
+        'prezio_sarrera' => 'decimal:2',
+        'aforo' => 'integer',
+        'aforo_librea' => 'integer',
+    ];
+
     public function sortzailea()
     {
         return $this->belongsTo(User::class, 'id_sortzailea');
     }
 
-    // Un evento puede tener muchas entradas vendidas
     public function sarrerak()
     {
         return $this->hasMany(Sarrera::class, 'id_ekitaldia');

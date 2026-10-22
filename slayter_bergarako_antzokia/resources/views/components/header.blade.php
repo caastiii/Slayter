@@ -96,8 +96,8 @@
                 HASIERA
             </a>
 
-            <!-- EKITALDIAK apunta al dashboard -->
-            <a href="{{ route('dashboard') }}" class="hover:underline transition-all">
+            <!-- EKITALDIAK apunta al listado/CRUD de eventos -->
+            <a href="{{ route('ekitaldiak.index') }}" class="hover:underline transition-all">
                 EKITALDIAK
             </a>
 
@@ -111,7 +111,7 @@
                 <a href="/admin/erabiltzaileak" class="hover:underline transition-all">
                     ERABILTZAILEEN KUDEAKETA (ADMIN BAKARRIK)
                 </a>
-                <a href="/admin/ekitaldiak" class="hover:underline transition-all">
+                <a href="{{ route('ekitaldiak.index') }}" class="hover:underline transition-all">
                     EKITALDIAK KUDEATU (ADMIN BAKARRIK)
                 </a>
             @endauth
