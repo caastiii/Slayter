@@ -13,19 +13,23 @@
             @vite(['resources/css/app.css', 'resources/js/app.js'])
         @endif
     </head>
-    <body class="bg-gray-100 min-h-screen font-sans antialiased">
+    
+    <!-- 1. Añadimos 'flex flex-col' al body -->
+    <body class="bg-gray-100 min-h-screen font-sans antialiased flex flex-col">
 
         <!-- Header único con tu diseño azul -->
         <x-header />
-
-        <!-- Aquí va el contenido principal de tu aplicación -->
-        <main class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-            <!-- Tu contenido personalizado aquí -->
+        
+        <x-carrousel />
+        
+        <!-- 2. Añadimos 'flex-grow' al main para que empuje el footer -->
+        <!-- También le he puesto w-full para que no haya problemas de anchos -->
+        <main class="flex-grow max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 w-full">
+            <!-- Aquí va el contenido principal de tu aplicación -->
         </main>
+        
+        <!-- 3. El Footer AHORA ESTÁ DENTRO del body -->
+        <x-footer />
 
     </body>
-
-    <!-- Footer -->
-    <x-footer />
-    
 </html>
