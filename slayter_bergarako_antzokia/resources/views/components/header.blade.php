@@ -1,8 +1,7 @@
-<!-- resources/views/components/header.blade.php -->
 
 <div x-data="{ menuOpen: false }" class="w-full bg-[#2b56bd] text-white shadow-md relative z-50">
     <!-- Barra Superior -->
-    <header class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+    <header class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center relative">
         
         <!-- Botón Menú Hamburguesa (Izquierda) -->
         <div class="flex items-center">
@@ -17,9 +16,9 @@
             </button>
         </div>
 
-        <!-- Título / Sección (Centro) -->
-        <div class="text-center font-medium text-lg tracking-wider uppercase">
-            {{ $title ?? 'HASIERA' }}
+        <!-- Título / Sección (Centro Absoluto perfecto) -->
+        <div class="absolute left-1/2 transform -translate-x-1/2 text-center font-medium text-lg tracking-wider uppercase pointer-events-none">
+            @yield('header-title', 'Bergarako Antzokia')
         </div>
 
         <!-- Acciones Derecha (Logueado vs Invitado) -->
@@ -65,16 +64,15 @@
             @guest
                 <!-- Enlaces de autenticación cuando NO está logueado -->
                 <a href="{{ route('login') }}" class="font-medium hover:underline text-sm uppercase tracking-wider">
-                    {{ __('Log in') }}
+                    {{ __('HASI SAIOA') }}
                 </a>
                 @if (Route::has('register'))
                     <a href="{{ route('register') }}" class="bg-white text-[#2b56bd] px-3 py-1 rounded-md text-sm font-semibold hover:bg-gray-100 transition-colors uppercase tracking-wider">
-                        {{ __('Register') }}
+                        {{ __('ERREGISTRATU') }}
                     </a>
                 @endif
             @endguest
         </div>
-
     </header>
 
     <!-- Menú Desplegable Flotante -->
@@ -91,29 +89,13 @@
         x-cloak
     >
         <nav class="flex flex-col items-center space-y-6 text-center text-sm font-medium tracking-wider uppercase">
-            <!-- HASIERA lleva al welcome / raíz -->
-            <a href="/" class="hover:underline transition-all">
-                HASIERA
-            </a>
+            <a href="/" class="hover:underline transition-all">HASIERA</a>
+            <a href="{{ route('dashboard') }}" class="hover:underline transition-all">EKITALDIAK</a>
+            <a href="/saskia" class="hover:underline transition-all">SASKIA</a>
 
-            <!-- EKITALDIAK apunta al dashboard -->
-            <a href="{{ route('dashboard') }}" class="hover:underline transition-all">
-                EKITALDIAK
-            </a>
-
-            <!-- SASKIA apunta a la vista/ruta de saskia -->
-            <a href="/saskia" class="hover:underline transition-all">
-                SASKIA
-            </a>
-
-            <!-- Opciones exclusivas de administrador -->
             @auth
-                <a href="/admin/erabiltzaileak" class="hover:underline transition-all">
-                    ERABILTZAILEEN KUDEAKETA (ADMIN BAKARRIK)
-                </a>
-                <a href="/admin/ekitaldiak" class="hover:underline transition-all">
-                    EKITALDIAK KUDEATU (ADMIN BAKARRIK)
-                </a>
+                <a href="/admin/erabiltzaileak" class="hover:underline transition-all">ERABILTZAILEEN KUDEAKETA (ADMIN BAKARRIK)</a>
+                <a href="/admin/ekitaldiak" class="hover:underline transition-all">EKITALDIAK KUDEATU (ADMIN BAKARRIK)</a>
             @endauth
         </nav>
     </div>

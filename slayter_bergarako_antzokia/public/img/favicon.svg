@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Fondo oscuro -->
+  <!-- Grupo central: líneas finas -->
+  <g stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <!-- TELA EXTRA SUPERIOR (Bambalinas con curvas hacia arriba) -->
+    <!-- Capa extra 1 (Fondo) -->
+    <path d="M 16 80 Q 128 10 256 80 Q 384 10 496 80 L 496 110 Q 384 40 256 110 Q 128 40 16 110 Z" fill="#93c5fd" fill-opacity="0.1" stroke="#93c5fd"/>
+    <!-- Capa extra 2 (Medio) -->
+    <path d="M 16 110 Q 128 40 256 110 Q 384 40 496 110 L 496 140 Q 384 70 256 140 Q 128 70 16 140 Z" fill="#60a5fa" fill-opacity="0.15" stroke="#60a5fa"/>
+    <!-- Capa extra 3 (Frontal) -->
+    <path d="M 16 140 Q 128 70 256 140 Q 384 70 496 140 L 496 170 Q 384 100 256 170 Q 128 100 16 170 Z" fill="#3b82f6" fill-opacity="0.2" stroke="#3b82f6"/>
+    <!-- TELÓN PRINCIPAL (Capa trasera) -->
+    <path d="M 40 160 Q 144 90 256 160 Q 368 90 472 160 Q 420 300 440 464 L 380 464 Q 360 300 256 160 Q 152 300 132 464 L 72 464 Q 92 300 40 160 Z" fill="#3b82f6" fill-opacity="0.1" stroke="#60a5fa"/>
+    <!-- TELÓN PRINCIPAL (Capa delantera) -->
+    <path d="M 32 190 Q 144 120 256 190 Q 368 120 480 190 Q 410 300 464 464 L 352 464 Q 380 300 256 190 Q 132 300 160 464 L 48 464 Q 102 300 32 190 Z" fill="#2563eb" fill-opacity="0.15" stroke="#3b82f6"/>
+    <!-- LÍNEAS DE PLIEGUE (Para mantener el volumen) -->
+    <path d="M 144 155 Q 150 300 104 464" fill="none" stroke="#60a5fa" stroke-opacity="0.6"/>
+    <path d="M 368 155 Q 362 300 408 464" fill="none" stroke="#60a5fa" stroke-opacity="0.6"/>
+  </g>
+</svg>
