@@ -1,4 +1,3 @@
-
 <div x-data="{ menuOpen: false }" class="w-full bg-[#2b56bd] text-white shadow-md relative z-50">
     <!-- Barra Superior -->
     <header class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center relative">
@@ -25,7 +24,7 @@
         <div class="flex items-center space-x-4">
             @auth
                 <!-- Ícono Carrito (Apunta a Saskia) -->
-                <a href="/saskia" class="text-white hover:opacity-80 transition-opacity" title="Carrito">
+                <a href="/saskia" class="no-underline text-white hover:opacity-80 transition-opacity" title="Carrito">
                     <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
                     </svg>
@@ -44,7 +43,7 @@
 
                         <x-slot name="content">
                             <x-dropdown-link :href="route('profile.edit')">
-                                {{ __('Profile') }}
+                                {{ __('Profila') }}
                             </x-dropdown-link>
 
                             <!-- Cerrar Sesión -->
@@ -53,7 +52,7 @@
                                 <x-dropdown-link :href="route('logout')"
                                         onclick="event.preventDefault();
                                                     this.closest('form').submit();">
-                                    {{ __('Log Out') }}
+                                    {{ __('Irten') }}
                                 </x-dropdown-link>
                             </form>
                         </x-slot>
@@ -63,11 +62,11 @@
 
             @guest
                 <!-- Enlaces de autenticación cuando NO está logueado -->
-                <a href="{{ route('login') }}" class="font-medium hover:underline text-sm uppercase tracking-wider">
+                <a href="{{ route('login') }}" class="no-underline text-white font-medium hover:opacity-80 transition-opacity text-sm uppercase tracking-wider">
                     {{ __('HASI SAIOA') }}
                 </a>
                 @if (Route::has('register'))
-                    <a href="{{ route('register') }}" class="bg-white text-[#2b56bd] px-3 py-1 rounded-md text-sm font-semibold hover:bg-gray-100 transition-colors uppercase tracking-wider">
+                    <a href="{{ route('register') }}" class="no-underline bg-white text-[#2b56bd] px-3 py-1 rounded-md text-sm font-semibold hover:bg-gray-100 transition-colors uppercase tracking-wider">
                         {{ __('ERREGISTRATU') }}
                     </a>
                 @endif
@@ -75,7 +74,7 @@
         </div>
     </header>
 
-    <!-- Menú Desplegable Flotante -->
+    <!-- Menú Desplegable Flotante (Ancho completo absoluto) -->
     <div 
         x-show="menuOpen" 
         @click.outside="menuOpen = false"
@@ -85,30 +84,28 @@
         x-transition:leave="transition ease-in duration-150"
         x-transition:leave-start="opacity-100 translate-y-0"
         x-transition:leave-end="opacity-0 -translate-y-2"
-        class="absolute top-full left-0 w-full bg-[#2b56bd] shadow-xl py-6 z-50"
+        class="absolute top-full left-0 w-full bg-[#2b56bd] shadow-xl py-2 z-50 border-t border-white/10"
         x-cloak
     >
-        <nav class="flex flex-col items-center space-y-6 text-center text-sm font-medium tracking-wider uppercase">
-            <!-- HASIERA lleva al welcome / raíz -->
-            <a href="/" class="hover:underline transition-all">
+        <nav class="flex flex-col text-sm font-medium tracking-wider uppercase text-center">
+            <a href="/" class="no-underline text-white block w-full py-3.5 hover:bg-white/15 transition-colors">
                 HASIERA
             </a>
 
-            <!-- EKITALDIAK apunta al dashboard -->
-           <a href="{{ route('ekitaldiak.index') }}" class="hover:underline transition-all">
+            <a href="{{ route('ekitaldiak.index') }}" class="no-underline text-white block w-full py-3.5 hover:bg-white/15 transition-colors">
                 EKITALDIAK
             </a>
 
-            <!-- SASKIA apunta a la vista/ruta de saskia -->
-            <a href="/saskia" class="hover:underline transition-all">
+            <a href="/saskia" class="no-underline text-white block w-full py-3.5 hover:bg-white/15 transition-colors">
                 SASKIA
             </a>
 
             @auth
-                <a href="/admin/erabiltzaileak" class="hover:underline transition-all">
+                <div class="w-full border-t border-white/20 my-1"></div>
+                <a href="/admin/erabiltzaileak" class="no-underline text-white block w-full py-3.5 hover:bg-white/15 transition-colors">
                     ERABILTZAILEEN KUDEAKETA (ADMIN BAKARRIK)
                 </a>
-                <a href="/admin/ekitaldiak" class="hover:underline transition-all">
+                <a href="/admin/ekitaldiak" class="no-underline text-white block w-full py-3.5 hover:bg-white/15 transition-colors">
                     EKITALDIAK KUDEATU (ADMIN BAKARRIK)
                 </a>
             @endauth
