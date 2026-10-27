@@ -16,10 +16,21 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::create([
-            'name'     => 'Admin User',
-            'email'    => 'admin@gmail.com',
-            'password' => Hash::make('admin123'),
+        // 1. Crear el usuario Administrador base con los campos de tu modelo
+        $admin = User::firstOrCreate(
+            ['email' => 'admin@gmail.com'],
+            [
+                'name'          => 'Admin User',
+                'Abizena'       => 'Kudeatzailea',
+                'Mota'          => 'Admin',
+                'password'      => Hash::make('admin123'),
+                'id_sortzailea' => null,
+            ]
+        );
+
+        // 2. Llamar al Seeder de eventos
+        $this->call([
+            EkitaldiaSeeder::class,
         ]);
     }
 }

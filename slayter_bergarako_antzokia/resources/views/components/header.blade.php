@@ -92,7 +92,8 @@
                 HASIERA
             </a>
 
-            <a href="{{ route('ekitaldiak.index') }}" class="no-underline text-white block w-full py-3.5 hover:bg-white/15 transition-colors">
+            <!-- CAMBIO AQUÍ: Apunta a la cartelera pública (dashboard) -->
+            <a href="{{ route('dashboard') }}" class="no-underline text-white block w-full py-3.5 hover:bg-white/15 transition-colors">
                 EKITALDIAK
             </a>
 
@@ -105,7 +106,9 @@
                 <a href="/admin/erabiltzaileak" class="no-underline text-white block w-full py-3.5 hover:bg-white/15 transition-colors">
                     ERABILTZAILEEN KUDEAKETA (ADMIN BAKARRIK)
                 </a>
-                <a href="/admin/ekitaldiak" class="no-underline text-white block w-full py-3.5 hover:bg-white/15 transition-colors">
+                
+                <!-- Apunta al CRUD privado para administradores -->
+                <a href="{{ route('ekitaldiak.index') }}" class="no-underline text-white block w-full py-3.5 hover:bg-white/15 transition-colors">
                     EKITALDIAK KUDEATU (ADMIN BAKARRIK)
                 </a>
             @endauth

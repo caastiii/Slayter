@@ -13,7 +13,7 @@ class EkitaldiaController extends Controller
     {
         $ekitaldiak = Ekitaldia::all(); 
 
-        // Apunta a resources/views/ekitaldiak/dashboard.blade.php
+        // Apunta a resources/views/ekitaldiak/dashboard.blade.php (CRUD Admin)
         return view('ekitaldiak.dashboard', compact('ekitaldiak'));
     }
 
@@ -108,5 +108,22 @@ class EkitaldiaController extends Controller
         $ekitaldia->delete();
 
         return redirect()->route('ekitaldiak.index')->with('success', 'Ekitaldia ezabatu da!');
+    }
+
+    public function kartelera()
+    {
+        $ekitaldiak = Ekitaldia::all();
+
+        // Apunta a resources/views/dashboard.blade.php (Pública)
+        return view('dashboard', compact('ekitaldiak'));
+    }
+
+    // Nuevo método para la vista pública de un evento
+    public function showPublikoa($id)
+    {
+        $ekitaldia = Ekitaldia::findOrFail($id);
+
+        // Apunta a resources/views/ekitaldiak/show-public.blade.php
+        return view('ekitaldiak.show-public', compact('ekitaldia'));
     }
 }

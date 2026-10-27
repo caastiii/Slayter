@@ -2,16 +2,25 @@
 
 use App\Http\Controllers\EkitaldiaController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Ekitaldia;
 use Illuminate\Support\Facades\Route;
 
+// Vista principal: Carga los 3 eventos más próximos en fecha y hora
 Route::get('/', function () {
-    return view('welcome');
+    $ekitaldiak = Ekitaldia::where('ekitaldi_data', '>=', now()->toDateString())
+        ->orderBy('ekitaldi_data', 'asc')
+        ->orderBy('ordua', 'asc')
+        ->take(3)
+        ->get();
+
+    return view('welcome', compact('ekitaldiak'));
 });
 
-// Dashboard general de Breeze
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// 1. Cartelera PÚBLICA (usa resources/views/dashboard.blade.php)
+Route::get('/dashboard', [EkitaldiaController::class, 'kartelera'])->name('dashboard');
+
+// Detalle PÚBLICO del evento (usa resources/views/ekitaldiak/show-public.blade.php)
+Route::get('/ekitaldiak/ikusi/{id}', [EkitaldiaController::class, 'showPublikoa'])->name('ekitaldiak.publikoa.show');
 
 Route::middleware('auth')->group(function () {
     // Rutas de Profile
@@ -19,7 +28,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    // Módulo CRUD Ekitaldiak
+    // 2. Módulo CRUD Ekitaldiak ADMIN (usa resources/views/ekitaldiak/dashboard.blade.php en index)
     Route::get('/ekitaldiak', [EkitaldiaController::class, 'index'])->name('ekitaldiak.index');
     Route::get('/ekitaldiak/create', [EkitaldiaController::class, 'create'])->name('ekitaldiak.create');
     Route::post('/ekitaldiak', [EkitaldiaController::class, 'store'])->name('ekitaldiak.store');
