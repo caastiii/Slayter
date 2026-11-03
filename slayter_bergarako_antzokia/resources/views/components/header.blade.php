@@ -15,7 +15,7 @@
             </button>
         </div>
 
-        <!-- Título / Sección (Centro Absoluto perfecto) -->
+        <!-- Título / Sección (Centro Absoluto) -->
         <div class="absolute left-1/2 transform -translate-x-1/2 text-center font-medium text-lg tracking-wider uppercase pointer-events-none">
             @yield('header-title', 'Bergarako Antzokia')
         </div>
@@ -23,7 +23,7 @@
         <!-- Acciones Derecha (Logueado vs Invitado) -->
         <div class="flex items-center space-x-4">
             @auth
-                <!-- Ícono Carrito (Apunta a Saskia) -->
+                <!-- Ícono Carrito -->
                 <a href="/saskia" class="no-underline text-white hover:opacity-80 transition-opacity" title="Carrito">
                     <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
@@ -74,7 +74,7 @@
         </div>
     </header>
 
-    <!-- Menú Desplegable Flotante (Ancho completo absoluto) -->
+    <!-- Menú Desplegable Flotante -->
     <div 
         x-show="menuOpen" 
         @click.outside="menuOpen = false"
@@ -92,7 +92,6 @@
                 HASIERA
             </a>
 
-            <!-- CAMBIO AQUÍ: Apunta a la cartelera pública (dashboard) -->
             <a href="{{ route('dashboard') }}" class="no-underline text-white block w-full py-3.5 hover:bg-white/15 transition-colors">
                 EKITALDIAK
             </a>
@@ -101,17 +100,18 @@
                 SASKIA
             </a>
 
-            @auth
+            <!-- SOLO VISIBLE SI ES ADMINISTRADOR -->
+            @if(auth()->check() && auth()->user()->Mota === 'Admin')
                 <div class="w-full border-t border-white/20 my-1"></div>
-                <a href="/admin/erabiltzaileak" class="no-underline text-white block w-full py-3.5 hover:bg-white/15 transition-colors">
-                    ERABILTZAILEEN KUDEAKETA (ADMIN BAKARRIK)
+                
+                <a href="{{ route('erabiltzaileak.index') }}" class="no-underline text-white block w-full py-3.5 hover:bg-white/15 transition-colors">
+                    ERABILTZAILEEN KUDEAKETA (ADMIN)
                 </a>
                 
-                <!-- Apunta al CRUD privado para administradores -->
                 <a href="{{ route('ekitaldiak.index') }}" class="no-underline text-white block w-full py-3.5 hover:bg-white/15 transition-colors">
-                    EKITALDIAK KUDEATU (ADMIN BAKARRIK)
+                    EKITALDIAK KUDEATU (ADMIN)
                 </a>
-            @endauth
+            @endif
         </nav>
     </div>
 </div>

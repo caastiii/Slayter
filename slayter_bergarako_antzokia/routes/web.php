@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ErabiltzaileController;
+use App\Http\Middleware\IsAdmin;
 use App\Http\Controllers\EkitaldiaController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Ekitaldia;
@@ -22,13 +24,25 @@ Route::get('/kartelera', [EkitaldiaController::class, 'kartelera'])->name('dashb
 // Detalle PÚBLICO del evento (usa resources/views/ekitaldiak/show-public.blade.php)
 Route::get('/ekitaldiak/ikusi/{id}', [EkitaldiaController::class, 'showPublikoa'])->name('ekitaldiak.publikoa.show');
 
+// Rutas accesibles para cualquier usuario autenticado (Profile)
 Route::middleware('auth')->group(function () {
-    // Rutas de Profile
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
-    // 2. Módulo CRUD Ekitaldiak ADMIN (usa resources/views/ekitaldiak/dashboard.blade.php en index)
+// Rutas protegidas SOLO para administradores (Erabiltzaileak + Ekitaldiak CRUD)
+Route::middleware(['auth', IsAdmin::class])->prefix('admin')->group(function () {
+
+    // --- Módulo CRUD Erabiltzaileak ---
+    Route::get('/erabiltzaileak', [ErabiltzaileController::class, 'index'])->name('erabiltzaileak.index');
+    Route::get('/erabiltzaileak/create', [ErabiltzaileController::class, 'create'])->name('erabiltzaileak.create');
+    Route::post('/erabiltzaileak', [ErabiltzaileController::class, 'store'])->name('erabiltzaileak.store');
+    Route::get('/erabiltzaileak/{user}/edit', [ErabiltzaileController::class, 'edit'])->name('erabiltzaileak.edit');
+    Route::put('/erabiltzaileak/{user}', [ErabiltzaileController::class, 'update'])->name('erabiltzaileak.update');
+    Route::delete('/erabiltzaileak/{user}', [ErabiltzaileController::class, 'destroy'])->name('erabiltzaileak.destroy');
+
+    // --- Módulo CRUD Ekitaldiak ADMIN ---
     Route::get('/ekitaldiak', [EkitaldiaController::class, 'index'])->name('ekitaldiak.index');
     Route::get('/ekitaldiak/create', [EkitaldiaController::class, 'create'])->name('ekitaldiak.create');
     Route::post('/ekitaldiak', [EkitaldiaController::class, 'store'])->name('ekitaldiak.store');

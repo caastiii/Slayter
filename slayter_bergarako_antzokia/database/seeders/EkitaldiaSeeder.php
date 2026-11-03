@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\Ekitaldia;
 use App\Models\User;
+use Carbon\Carbon;
 
 class EkitaldiaSeeder extends Seeder
 {
@@ -13,62 +14,38 @@ class EkitaldiaSeeder extends Seeder
      */
     public function run(): void
     {
-        // Obtenemos el admin que acabamos de crear en DatabaseSeeder (o el primero que sea Admin)
-        $admin = User::where('email', 'admin@gmail.com')->first();
+        // Obtenemos el usuario admin
+        $admin = User::where('Mota', 'admin')->first() ?? User::first();
 
-        $ekitaldiak = [
-            [
-                'izenburua'      => 'Goenkale: Azken Agurra',
-                'deskripzioa'    => 'Herriko antzezle taldearen antzezlan berezia, komedia eta nostalgia nahasten dituena.',
-                'ekitaldi_data'  => '2026-11-15',
-                'ordua'          => '19:30:00',
-                'irudia'         => null,
-                'aforo'          => 150,
-                'aforo_librea'   => 120,
-                'egoera'         => 'Antzerkia',
-                'prezio_sarrera' => 12.50,
-                'id_sortzailea'  => $admin->id,
-            ],
-            [
-                'izenburua'      => 'Zinema: Dune Parte 3',
-                'deskripzioa'    => 'Zinema emanaldi berezia azken belaunaldiko soinu eta irudi kalitatearekin.',
-                'ekitaldi_data'  => '2026-11-20',
-                'ordua'          => '20:00:00',
-                'irudia'         => null,
-                'aforo'          => 200,
-                'aforo_librea'   => 45,
-                'egoera'         => 'Zinema',
-                'prezio_sarrera' => 6.00,
-                'id_sortzailea'  => $admin->id,
-            ],
-            [
-                'izenburua'      => 'Bergarako Orfeoiaren Kontzertua',
-                'deskripzioa'    => 'Musika klasiko eta koral gaualdi ahaztezina gure antzoki historikoan.',
-                'ekitaldi_data'  => '2026-12-05',
-                'ordua'          => '18:00:00',
-                'irudia'         => null,
-                'aforo'          => 300,
-                'aforo_librea'   => 0, // Agotado
-                'egoera'         => 'Musika',
-                'prezio_sarrera' => 0.00,
-                'id_sortzailea'  => $admin->id,
-            ],
-            [
-                'izenburua'      => 'Monologoak: Umorea Euskaraz',
-                'deskripzioa'    => 'Euskal Herriko komiko onenen saioa barre karkarak ziurtatzeko.',
-                'ekitaldi_data'  => '2026-12-12',
-                'ordua'          => '21:00:00',
-                'irudia'         => null,
-                'aforo'          => 100,
-                'aforo_librea'   => 80,
-                'egoera'         => 'Umorea',
-                'prezio_sarrera' => 8.00,
-                'id_sortzailea'  => $admin->id,
-            ],
+        // Plantilla de tipos de eventos para variar los datos
+        $ekitaldiMotak = [
+            ['izenburua' => 'Goenkale: Azken Agurra', 'egoera' => 'Antzerkia', 'prezioa' => 12.50],
+            ['izenburua' => 'Zinema: Dune Parte 3', 'egoera' => 'Zinema', 'prezioa' => 6.00],
+            ['izenburua' => 'Bergarako Orfeoiaren Kontzertua', 'egoera' => 'Musika', 'prezioa' => 0.00],
+            ['izenburua' => 'Monologoak: Umorea Euskaraz', 'egoera' => 'Umorea', 'prezioa' => 8.00],
+            ['izenburua' => 'Dantzari Eguna', 'egoera' => 'Dantza', 'prezioa' => 5.00],
+            ['izenburua' => 'Bertso Saio Nagusia', 'egoera' => 'Kultura', 'prezioa' => 10.00],
+            ['izenburua' => 'Haurrentzako Antzerkia: Pailazoak', 'egoera' => 'Haurrak', 'prezioa' => 4.00],
         ];
 
-        foreach ($ekitaldiak as $ekitaldia) {
-            Ekitaldia::create($ekitaldia);
+        // Generamos 15 eventos repartidos entre los próximos 15 días y los próximos 12 meses
+        for ($i = 1; $i <= 15; $i++) {
+            $mota = $ekitaldiMotak[array_rand($ekitaldiMotak)];
+            $aforo = rand(100, 300);
+
+            Ekitaldia::create([
+                'izenburua'      => $mota['izenburua'] . ' #' . $i,
+                'deskripzioa'    => 'Bergarako Antzokian ospatuko den ' . $mota['izenburua'] . ' ekitaldiaren deskripzio orokorra.',
+                // Reparte las fechas dinámicamente desde dentro de 3 días hasta dentro de 360 días
+                'ekitaldi_data'  => Carbon::now()->addDays($i * 20 + rand(1, 10)),
+                'ordua'          => sprintf('%02d:00:00', rand(17, 21)), // Horas entre las 17:00 y las 21:00
+                'irudia'         => null,
+                'aforo'          => $aforo,
+                'aforo_librea'   => rand(10, $aforo),
+                'egoera'         => $mota['egoera'],
+                'prezio_sarrera' => $mota['prezioa'],
+                'id_sortzailea'  => $admin->id,
+            ]);
         }
     }
 }

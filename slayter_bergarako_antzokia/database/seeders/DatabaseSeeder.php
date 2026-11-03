@@ -16,8 +16,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // 1. Crear el usuario Administrador base con los campos de tu modelo
-        $admin = User::firstOrCreate(
+        // 1. Crear o actualizar el usuario Administrador base con Mota en minúscula
+        $admin = User::updateOrCreate(
             ['email' => 'admin@gmail.com'],
             [
                 'name'          => 'Admin User',
