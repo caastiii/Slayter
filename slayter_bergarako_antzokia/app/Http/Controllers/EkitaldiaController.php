@@ -114,8 +114,8 @@ class EkitaldiaController extends Controller
     {
         $ekitaldiak = Ekitaldia::all();
 
-        // Apunta a resources/views/dashboard.blade.php (Pública)
-        return view('dashboard', compact('ekitaldiak'));
+        // Apunta a resources/views/kartelera.blade.php (Pública)
+        return view('kartelera', compact('ekitaldiak'));
     }
 
     // Nuevo método para la vista pública de un evento

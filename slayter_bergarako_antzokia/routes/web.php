@@ -16,8 +16,8 @@ Route::get('/', function () {
     return view('welcome', compact('ekitaldiak'));
 });
 
-// 1. Cartelera PÚBLICA (usa resources/views/dashboard.blade.php)
-Route::get('/dashboard', [EkitaldiaController::class, 'kartelera'])->name('dashboard');
+// 1. Cartelera PÚBLICA (URL cambiada a /kartelera, usa resources/views/dashboard.blade.php)
+Route::get('/kartelera', [EkitaldiaController::class, 'kartelera'])->name('dashboard');
 
 // Detalle PÚBLICO del evento (usa resources/views/ekitaldiak/show-public.blade.php)
 Route::get('/ekitaldiak/ikusi/{id}', [EkitaldiaController::class, 'showPublikoa'])->name('ekitaldiak.publikoa.show');
