@@ -63,28 +63,27 @@
     </div>
 
     <!-- Txartelen Grid-a Blade osagaiak erabiliz -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        <x-event-card 
-            type="Zinema" 
-            typeColor="blue" 
-            title="Estreinoko Filma" 
-            date="Ostirala, 24 | 19:30" 
-        />
-        
-        <x-event-card 
-            type="Antzerkia" 
-            typeColor="rose" 
-            title="Bertako Antzezlana" 
-            date="Larunbata, 25 | 20:00" 
-        />
-        
-        <x-event-card 
-            type="Musika" 
-            typeColor="emerald" 
-            title="Kontzertu Akustikoa" 
-            date="Igandea, 26 | 19:00" 
-        />
-    </div>
+    <!-- Contenedor de la cuadrícula de eventos -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+    @foreach($ekitaldiak as $ekitaldia)
+        <div class="bg-white rounded-lg shadow-md p-6 border border-gray-200">
+            <h3 class="text-xl font-bold text-[#2b56bd] mb-2">{{ $ekitaldia->izenburua }}</h3>
+            
+            <p class="text-gray-600 text-sm mb-4">
+                <strong>Data:</strong> {{ $ekitaldia->ekitaldi_data->format('Y/m/d') }} <br>
+                <!-- Formateamos la hora para que salga sin los segundos (ej: 19:00) -->
+                <strong>Ordua:</strong> {{ \Carbon\Carbon::parse($ekitaldia->ordua)->format('H:i') }}
+            </p>
+            
+            <p class="text-gray-700 mb-4 line-clamp-3">
+                {{ $ekitaldia->deskripzioa }}
+            </p>
+            
+            <span class="font-bold text-lg text-gray-900">{{ $ekitaldia->prezio_sarrera }} €</span>
+        </div>
+    @endforeach
+</div>
+
 </div>
         </main>
         

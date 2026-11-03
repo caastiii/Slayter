@@ -3,9 +3,16 @@
 use App\Http\Controllers\EkitaldiaController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Models\Ekitaldia;
 
 Route::get('/', function () {
-    return view('welcome');
+    // Busca los eventos desde hoy en adelante, ordenados por fecha y coge solo 3
+    $ekitaldiak = Ekitaldia::where('ekitaldi_data', '>=', now())
+                          ->orderBy('ekitaldi_data', 'asc')
+                          ->take(3)
+                          ->get();
+
+    return view('welcome', compact('ekitaldiak'));
 });
 
 // Dashboard general de Breeze
