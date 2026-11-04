@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Ekitaldia;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\Rule;
 
 class EkitaldiaController extends Controller
 {
@@ -26,14 +27,14 @@ class EkitaldiaController extends Controller
     public function store(Request $request) 
     {
         $request->validate([
-            'izenburua'      => 'required|string|max:200',
-            'deskripzioa'    => 'nullable|string',
+            'izenburua'      => 'required|string|max:255',
+            'deskripzioa'    => 'required|string',
             'ekitaldi_data'  => 'required|date',
             'ordua'          => 'required',
             'aforo'          => 'required|integer|min:1',
-            'egoera'         => 'nullable|string|max:50',
             'prezio_sarrera' => 'required|numeric|min:0',
-            'irudia'         => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'egoera'         => ['required', Rule::in(['aktiboa', 'desaktibatuta', 'bertan behera'])],
+            'irudia'         => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         $data = $request->all();
@@ -72,14 +73,14 @@ class EkitaldiaController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'izenburua'      => 'required|string|max:200',
-            'deskripzioa'    => 'nullable|string',
+            'izenburua'      => 'required|string|max:255',
+            'deskripzioa'    => 'required|string',
             'ekitaldi_data'  => 'required|date',
             'ordua'          => 'required',
             'aforo'          => 'required|integer|min:1',
-            'egoera'         => 'nullable|string|max:50',
             'prezio_sarrera' => 'required|numeric|min:0',
-            'irudia'         => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'egoera'         => ['required', Rule::in(['aktiboa', 'desaktibatuta', 'bertan behera'])],
+            'irudia'         => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         $ekitaldia = Ekitaldia::findOrFail($id);

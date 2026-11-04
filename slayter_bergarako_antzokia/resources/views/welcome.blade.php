@@ -37,7 +37,7 @@
             <div class="mb-16">
                 <div class="flex justify-between items-center mb-8">
                     <h2 class="text-3xl font-bold text-gray-800">Datozen Ikuskizunak</h2>
-                    <a href="{{ route('dashboard') }}" class="text-[#2b56bd] hover:text-blue-800 font-medium transition-colors">
+                    <a href="{{ route('ekitaldiak.kartelera') }}" class="text-[#2b56bd] hover:text-blue-800 font-medium transition-colors">
                         Kartelera osoa ikusi &rarr;
                     </a>
                 </div>
@@ -47,7 +47,7 @@
                         Ez dago ekitaldirik ikusgai une honetan.
                     </div>
                 @else
-                    <!-- Grid de las 3 primeras tarjetas idénticas a las de dashboard.blade.php -->
+                    <!-- Grid de las 3 primeras tarjetas idénticas a las de kartelera.blade.php -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                         @foreach($ekitaldiak->take(3) as $ekitaldia)
                             <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col justify-between">

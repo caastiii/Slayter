@@ -86,11 +86,11 @@
                                    class="w-1/2 inline-flex justify-center items-center px-4 py-2.5 bg-gray-700 border border-transparent rounded-lg font-semibold text-xs text-white uppercase tracking-wider hover:bg-gray-800 transition duration-150">
                                     {{ __('Ikusi') }}
                                 </a>
-
+                                
                                 <!-- Botón EROSI / SARRERAK EROSI -->
                                 @if(($ekitaldia->aforo_librea ?? 1) > 0)
-                                    <a href="#" 
-                                       class="w-1/2 inline-flex justify-center items-center px-4 py-2.5 bg-[#2b56bd] border border-transparent rounded-lg font-semibold text-xs text-white uppercase tracking-wider hover:bg-blue-700 transition duration-150">
+                                    <a href="{{ route('erosketak.create', $ekitaldia->id) }}" 
+                                    class="w-1/2 inline-flex justify-center items-center px-4 py-2.5 bg-[#2b56bd] border border-transparent rounded-lg font-semibold text-xs text-white uppercase tracking-wider hover:bg-blue-700 transition duration-150">
                                         {{ __('Sarrerak erosi') }}
                                     </a>
                                 @else

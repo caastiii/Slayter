@@ -8,7 +8,7 @@
                     
                     <div class="max-w-2xl mx-auto">
 
-                        <form action="{{ url('/ekitaldiak/' . $ekitaldia->id) }}" method="POST" enctype="multipart/form-data" class="space-y-6">
+                        <form action="{{ route('ekitaldiak.update', $ekitaldia->id) }}" method="POST" enctype="multipart/form-data" class="space-y-6">
                             @csrf
                             @method('PUT')
 
@@ -103,11 +103,16 @@
                                     @enderror
                                 </div>
 
+                                <!-- Egoera -->
                                 <div>
                                     <label for="egoera" class="block text-sm font-medium text-gray-700">Egoera</label>
                                     <div class="mt-1">
-                                        <input type="text" id="egoera" name="egoera" value="{{ old('egoera', $ekitaldia->egoera) }}"
+                                        <select id="egoera" name="egoera"
                                             class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md @error('egoera') border-red-300 text-red-900 focus:ring-red-500 focus:border-red-500 @enderror">
+                                            <option value="aktiboa" {{ old('egoera', $ekitaldia->egoera) == 'aktiboa' ? 'selected' : '' }}>Aktiboa</option>
+                                            <option value="desaktibatuta" {{ old('egoera', $ekitaldia->egoera) == 'desaktibatuta' ? 'selected' : '' }}>Desaktibatuta</option>
+                                            <option value="bertan behera" {{ old('egoera', $ekitaldia->egoera) == 'bertan behera' ? 'selected' : '' }}>Bertan behera</option>
+                                        </select>
                                     </div>
                                     @error('egoera')
                                         <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
@@ -132,8 +137,11 @@
                                 @enderror
                             </div>
 
-                            <!-- Submit Button -->
-                            <div class="flex justify-end">
+                            <!-- Botones de Acción (Atzera + Submit) -->
+                            <div class="flex items-center justify-end space-x-3 pt-4 border-t border-gray-100">
+                                <a href="{{ route('ekitaldiak.index') }}" class="inline-flex items-center justify-center px-4 py-2 bg-gray-200 border border-transparent rounded-md font-semibold text-xs text-gray-700 uppercase tracking-widest hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 transition ease-in-out duration-150">
+                                    Atzera
+                                </a>
                                 <button type="submit" style="background-color: #4f46e5; color: #ffffff;" class="inline-flex items-center justify-center px-4 py-2 bg-indigo-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-indigo-700 focus:bg-indigo-700 active:bg-indigo-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
                                     Submit
                                 </button>

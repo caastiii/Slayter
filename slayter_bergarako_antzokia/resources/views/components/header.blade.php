@@ -92,7 +92,7 @@
                 HASIERA
             </a>
 
-            <a href="{{ route('dashboard') }}" class="no-underline text-white block w-full py-3.5 hover:bg-white/15 transition-colors">
+            <a href="{{ route('ekitaldiak.kartelera') }}" class="no-underline text-white block w-full py-3.5 hover:bg-white/15 transition-colors">
                 EKITALDIAK
             </a>
 

@@ -1,9 +1,10 @@
 <?php
 
 use App\Http\Controllers\ErabiltzaileController;
-use App\Http\Middleware\IsAdmin;
 use App\Http\Controllers\EkitaldiaController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SarreraController;
+use App\Http\Middleware\IsAdmin;
 use App\Models\Ekitaldia;
 use Illuminate\Support\Facades\Route;
 
@@ -19,7 +20,7 @@ Route::get('/', function () {
 });
 
 // 1. Cartelera PÚBLICA (URL cambiada a /kartelera, usa resources/views/dashboard.blade.php)
-Route::get('/kartelera', [EkitaldiaController::class, 'kartelera'])->name('dashboard');
+Route::get('/kartelera', [EkitaldiaController::class, 'kartelera'])->name('ekitaldiak.kartelera');
 
 // Detalle PÚBLICO del evento (usa resources/views/ekitaldiak/show-public.blade.php)
 Route::get('/ekitaldiak/ikusi/{id}', [EkitaldiaController::class, 'showPublikoa'])->name('ekitaldiak.publikoa.show');
@@ -50,6 +51,14 @@ Route::middleware(['auth', IsAdmin::class])->prefix('admin')->group(function () 
     Route::get('/ekitaldiak/{id}/edit', [EkitaldiaController::class, 'edit'])->name('ekitaldiak.edit');
     Route::put('/ekitaldiak/{id}', [EkitaldiaController::class, 'update'])->name('ekitaldiak.update');
     Route::delete('/ekitaldiak/{id}/delete', [EkitaldiaController::class, 'delete'])->name('ekitaldiak.delete');
+});
+
+// Módulo de Compras / Saskia (Sarrerak)
+Route::middleware(['auth'])->group(function () {
+    Route::get('/saskia', [SarreraController::class, 'index'])->name('erosketak.index');
+    Route::get('/erosketak/erosi/{id}', [SarreraController::class, 'create'])->name('erosketak.create');
+    Route::post('/erosketak', [SarreraController::class, 'store'])->name('erosketak.store');
+    Route::delete('/erosketak/{id}', [SarreraController::class, 'destroy'])->name('erosketak.destroy');
 });
 
 require __DIR__.'/auth.php';

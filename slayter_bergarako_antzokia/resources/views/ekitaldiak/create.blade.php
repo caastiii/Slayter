@@ -8,7 +8,7 @@
                     
                     <div class="max-w-2xl mx-auto">
                         
-                        <form action="{{ url('/ekitaldiak') }}" method="POST" enctype="multipart/form-data" class="space-y-6">
+                        <form action="{{ route('ekitaldiak.store') }}" method="POST" enctype="multipart/form-data" class="space-y-6">
                             @csrf
 
                             <!-- Erroreen Kudeaketa Orokorra -->
@@ -102,11 +102,16 @@
                                     @enderror
                                 </div>
 
+                                <!-- Egoera (Sustituido por <select>) -->
                                 <div>
                                     <label for="egoera" class="block text-sm font-medium text-gray-700">Egoera</label>
                                     <div class="mt-1">
-                                        <input type="text" id="egoera" name="egoera" placeholder="aktiboa" value="{{ old('egoera', 'aktiboa') }}"
+                                        <select id="egoera" name="egoera"
                                             class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md @error('egoera') border-red-300 text-red-900 focus:ring-red-500 focus:border-red-500 @enderror">
+                                            <option value="aktiboa" {{ old('egoera', 'aktiboa') == 'aktiboa' ? 'selected' : '' }}>Aktiboa</option>
+                                            <option value="desaktibatuta" {{ old('egoera') == 'desaktibatuta' ? 'selected' : '' }}>Desaktibatuta</option>
+                                            <option value="bertan behera" {{ old('egoera') == 'bertan behera' ? 'selected' : '' }}>Bertan behera</option>
+                                        </select>
                                     </div>
                                     @error('egoera')
                                         <p class="mt-2 text-sm text-red-600">{{ $message }}</p>

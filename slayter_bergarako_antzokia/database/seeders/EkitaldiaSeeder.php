@@ -14,21 +14,26 @@ class EkitaldiaSeeder extends Seeder
      */
     public function run(): void
     {
-        // Obtenemos el usuario admin
-        $admin = User::where('Mota', 'admin')->first() ?? User::first();
+        // Obtenemos el usuario admin (soportando mayúsculas/minúsculas)
+        $admin = User::where('Mota', 'Admin')
+                    ->orWhere('Mota', 'admin')
+                    ->first() ?? User::first();
 
-        // Plantilla de tipos de eventos para variar los datos
+        // Plantilla de eventos
         $ekitaldiMotak = [
-            ['izenburua' => 'Goenkale: Azken Agurra', 'egoera' => 'Antzerkia', 'prezioa' => 12.50],
-            ['izenburua' => 'Zinema: Dune Parte 3', 'egoera' => 'Zinema', 'prezioa' => 6.00],
-            ['izenburua' => 'Bergarako Orfeoiaren Kontzertua', 'egoera' => 'Musika', 'prezioa' => 0.00],
-            ['izenburua' => 'Monologoak: Umorea Euskaraz', 'egoera' => 'Umorea', 'prezioa' => 8.00],
-            ['izenburua' => 'Dantzari Eguna', 'egoera' => 'Dantza', 'prezioa' => 5.00],
-            ['izenburua' => 'Bertso Saio Nagusia', 'egoera' => 'Kultura', 'prezioa' => 10.00],
-            ['izenburua' => 'Haurrentzako Antzerkia: Pailazoak', 'egoera' => 'Haurrak', 'prezioa' => 4.00],
+            ['izenburua' => 'Goenkale: Azken Agurra', 'prezioa' => 12.50],
+            ['izenburua' => 'Zinema: Dune Parte 3', 'prezioa' => 6.00],
+            ['izenburua' => 'Bergarako Orfeoiaren Kontzertua', 'prezioa' => 0.00],
+            ['izenburua' => 'Monologoak: Umorea Euskaraz', 'prezioa' => 8.00],
+            ['izenburua' => 'Dantzari Eguna', 'prezioa' => 5.00],
+            ['izenburua' => 'Bertso Saio Nagusia', 'prezioa' => 10.00],
+            ['izenburua' => 'Haurrentzako Antzerkia: Pailazoak', 'prezioa' => 4.00],
         ];
 
-        // Generamos 15 eventos repartidos entre los próximos 15 días y los próximos 12 meses
+        // Estados válidos para el campo 'egoera'
+        $egoerak = ['aktiboa', 'desaktibatuta', 'bertan behera'];
+
+        // Generamos 15 eventos
         for ($i = 1; $i <= 15; $i++) {
             $mota = $ekitaldiMotak[array_rand($ekitaldiMotak)];
             $aforo = rand(100, 300);
@@ -36,15 +41,14 @@ class EkitaldiaSeeder extends Seeder
             Ekitaldia::create([
                 'izenburua'      => $mota['izenburua'] . ' #' . $i,
                 'deskripzioa'    => 'Bergarako Antzokian ospatuko den ' . $mota['izenburua'] . ' ekitaldiaren deskripzio orokorra.',
-                // Reparte las fechas dinámicamente desde dentro de 3 días hasta dentro de 360 días
-                'ekitaldi_data'  => Carbon::now()->addDays($i * 20 + rand(1, 10)),
-                'ordua'          => sprintf('%02d:00:00', rand(17, 21)), // Horas entre las 17:00 y las 21:00
+                'ekitaldi_data'  => Carbon::now()->addDays(($i * 10) + rand(1, 5)),
+                'ordua'          => sprintf('%02d:00:00', rand(17, 21)),
                 'irudia'         => null,
                 'aforo'          => $aforo,
                 'aforo_librea'   => rand(10, $aforo),
-                'egoera'         => $mota['egoera'],
+                'egoera'         => $egoerak[array_rand($egoerak)], // Solo valores permitidos ('aktiboa', 'desaktibatuta', 'bertan behera')
                 'prezio_sarrera' => $mota['prezioa'],
-                'id_sortzailea'  => $admin->id,
+                'id_sortzailea'  => $admin ? $admin->id : null,
             ]);
         }
     }
