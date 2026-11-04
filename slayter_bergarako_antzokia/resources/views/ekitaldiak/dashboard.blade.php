@@ -65,14 +65,16 @@
                                         <td class="px-2 py-3 text-xs text-gray-600 text-right font-semibold">
                                             {{ number_format($ekitaldia->prezio_sarrera, 2) }} €
                                         </td>
-
+                                        
                                         <!-- Egoera -->
                                         <td class="px-2 py-3 text-center">
                                             <span class="px-2 py-0.5 inline-flex text-[11px] leading-5 font-semibold rounded-full border
-                                                @if($ekitaldia->egoera === 'aktiboa') bg-green-100 text-green-800 border-green-200
-                                                @elseif($ekitaldia->egoera === 'bertan behera') bg-red-100 text-red-800 border-red-200
-                                                @else bg-yellow-100 text-yellow-800 border-yellow-200 @endif">
-                                                {{ ucfirst($ekitaldia->egoera ?? 'desaktibatuta') }}
+                                                @if($ekitaldia->egoera === \App\Enums\Egoera::AKTIBOA) bg-green-100 text-green-800 border-green-200
+                                                @elseif($ekitaldia->egoera === \App\Enums\Egoera::AGORTUTA) bg-orange-100 text-orange-800 border-orange-200
+                                                @elseif($ekitaldia->egoera === \App\Enums\Egoera::BUKATUTA) bg-gray-100 text-gray-800 border-gray-200
+                                                @else bg-red-100 text-red-800 border-red-200 @endif">
+                                                
+                                                {{ ucfirst($ekitaldia->egoera->value) }}
                                             </span>
                                         </td>
 
