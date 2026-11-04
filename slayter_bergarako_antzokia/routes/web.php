@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Route;
 // Vista principal: Carga los 3 eventos más próximos en fecha y hora
 Route::get('/', function () {
     $ekitaldiak = Ekitaldia::where('ekitaldi_data', '>=', now()->toDateString())
+        ->where('egoera', 'aktiboa') // Filtra solo los activos
         ->orderBy('ekitaldi_data', 'asc')
         ->orderBy('ordua', 'asc')
         ->take(3)
