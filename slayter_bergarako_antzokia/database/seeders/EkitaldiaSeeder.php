@@ -39,7 +39,7 @@ class EkitaldiaSeeder extends Seeder
             $aforo = rand(100, 300);
 
             Ekitaldia::create([
-                'izenburua'      => $mota['izenburua'] . ' #' . $i,
+                'izenburua'      => $mota['izenburua'] ,
                 'deskripzioa'    => 'Bergarako Antzokian ospatuko den ' . $mota['izenburua'] . ' ekitaldiaren deskripzio orokorra.',
                 'ekitaldi_data'  => Carbon::now()->addDays(($i * 10) + rand(1, 5)),
                 'ordua'          => sprintf('%02d:00:00', rand(17, 21)),
