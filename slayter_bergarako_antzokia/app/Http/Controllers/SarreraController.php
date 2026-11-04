@@ -7,6 +7,7 @@ use App\Models\Sarrera;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Enums\Egoera; // Importamos el Enum
 
 class SarreraController extends Controller
 {
@@ -67,6 +68,14 @@ class SarreraController extends Controller
 
                 // Descontar aforo
                 $ekitaldiaLock->decrement('aforo_librea', $request->kantitatea);
+
+                // --- NUEVO: AUTOMATIZACIÓN DE AGORTUTA ---
+                // Si tras la compra el aforo llega a 0 y estaba activo, pasa a agortuta
+                if ($ekitaldiaLock->aforo_librea <= 0 && $ekitaldiaLock->egoera === Egoera::AKTIBOA) {
+                    $ekitaldiaLock->update([
+                        'egoera' => Egoera::AGORTUTA
+                    ]);
+                }
             });
 
             return redirect()->route('erosketak.index')->with('success', 'Erosketa ondo burutu da!');
@@ -91,6 +100,14 @@ class SarreraController extends Controller
 
                 // Devolver aforo al evento
                 $ekitaldiaLock->increment('aforo_librea', $sarrera->kantitatea);
+
+                // --- NUEVO: AUTOMATIZACIÓN DE DEVOLVER A AKTIBOA ---
+                // Si el evento estaba agotado pero ahora vuelve a tener aforo, lo pasamos a activo
+                if ($ekitaldiaLock->aforo_librea > 0 && $ekitaldiaLock->egoera === Egoera::AGORTUTA) {
+                    $ekitaldiaLock->update([
+                        'egoera' => Egoera::AKTIBOA
+                    ]);
+                }
 
                 // Eliminar la entrada
                 $sarrera->delete();

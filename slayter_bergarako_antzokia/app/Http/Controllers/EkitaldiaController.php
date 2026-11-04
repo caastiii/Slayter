@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Ekitaldia;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Validation\Rule;
+use Illuminate\Validation\Rules\Enum;
+use App\Enums\Egoera;
 
 class EkitaldiaController extends Controller
 {
@@ -33,7 +34,7 @@ class EkitaldiaController extends Controller
             'ordua'          => 'required',
             'aforo'          => 'required|integer|min:1',
             'prezio_sarrera' => 'required|numeric|min:0',
-            'egoera'         => ['required', Rule::in(['aktiboa', 'desaktibatuta', 'bertan behera'])],
+            'egoera'         => ['required', new Enum(Egoera::class)], // Usamos el Enum aquí
             'irudia'         => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
@@ -79,7 +80,7 @@ class EkitaldiaController extends Controller
             'ordua'          => 'required',
             'aforo'          => 'required|integer|min:1',
             'prezio_sarrera' => 'required|numeric|min:0',
-            'egoera'         => ['required', Rule::in(['aktiboa', 'desaktibatuta', 'bertan behera'])],
+            'egoera'         => ['required', new Enum(Egoera::class)], // Usamos el Enum aquí
             'irudia'         => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
@@ -113,13 +114,14 @@ class EkitaldiaController extends Controller
 
     public function kartelera()
     {
+        // Opcional: Si en la cartelera pública también quieres ocultar los que están "bertan behera" (cancelados),
+        // puedes cambiar este all() por: Ekitaldia::where('egoera', '!=', Egoera::BERTAN_BEHERA)->get();
         $ekitaldiak = Ekitaldia::all();
 
         // Apunta a resources/views/kartelera.blade.php (Pública)
         return view('kartelera', compact('ekitaldiak'));
     }
 
-    // Nuevo método para la vista pública de un evento
     public function showPublikoa($id)
     {
         $ekitaldia = Ekitaldia::findOrFail($id);

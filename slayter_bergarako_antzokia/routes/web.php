@@ -7,11 +7,12 @@ use App\Http\Controllers\SarreraController;
 use App\Http\Middleware\IsAdmin;
 use App\Models\Ekitaldia;
 use Illuminate\Support\Facades\Route;
+use App\Enums\Egoera;
 
 // Vista principal: Carga los 3 eventos más próximos en fecha y hora
 Route::get('/', function () {
     $ekitaldiak = Ekitaldia::where('ekitaldi_data', '>=', now()->toDateString())
-        ->where('egoera', 'aktiboa') // Filtra solo los activos
+        ->whereIn('egoera', [Egoera::AKTIBOA, Egoera::AGORTUTA])
         ->orderBy('ekitaldi_data', 'asc')
         ->orderBy('ordua', 'asc')
         ->take(3)

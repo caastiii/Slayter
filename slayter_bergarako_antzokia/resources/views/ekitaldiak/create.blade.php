@@ -102,15 +102,17 @@
                                     @enderror
                                 </div>
 
-                                <!-- Egoera (Sustituido por <select>) -->
+                                <!-- Egoera (Dinamikoa Enum bidez) -->
                                 <div>
                                     <label for="egoera" class="block text-sm font-medium text-gray-700">Egoera</label>
                                     <div class="mt-1">
                                         <select id="egoera" name="egoera"
                                             class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md @error('egoera') border-red-300 text-red-900 focus:ring-red-500 focus:border-red-500 @enderror">
-                                            <option value="aktiboa" {{ old('egoera', 'aktiboa') == 'aktiboa' ? 'selected' : '' }}>Aktiboa</option>
-                                            <option value="desaktibatuta" {{ old('egoera') == 'desaktibatuta' ? 'selected' : '' }}>Desaktibatuta</option>
-                                            <option value="bertan behera" {{ old('egoera') == 'bertan behera' ? 'selected' : '' }}>Bertan behera</option>
+                                            @foreach(\App\Enums\Egoera::cases() as $estado)
+                                                <option value="{{ $estado->value }}" {{ old('egoera', 'aktiboa') == $estado->value ? 'selected' : '' }}>
+                                                    {{ ucwords($estado->value) }}
+                                                </option>
+                                            @endforeach
                                         </select>
                                     </div>
                                     @error('egoera')

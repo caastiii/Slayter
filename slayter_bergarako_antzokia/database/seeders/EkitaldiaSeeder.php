@@ -6,15 +6,13 @@ use Illuminate\Database\Seeder;
 use App\Models\Ekitaldia;
 use App\Models\User;
 use Carbon\Carbon;
+use App\Enums\Egoera; // <-- 1. Importamos el Enum
 
 class EkitaldiaSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
-        // Obtenemos el usuario admin (soportando mayúsculas/minúsculas)
+        // Obtenemos el usuario admin
         $admin = User::where('Mota', 'Admin')
                     ->orWhere('Mota', 'admin')
                     ->first() ?? User::first();
@@ -30,23 +28,34 @@ class EkitaldiaSeeder extends Seeder
             ['izenburua' => 'Haurrentzako Antzerkia: Pailazoak', 'prezioa' => 4.00],
         ];
 
-        // Estados válidos para el campo 'egoera'
-        $egoerak = ['aktiboa', 'desaktibatuta', 'bertan behera'];
+        // 2. Usamos los Enums directamente
+        $egoerak = [
+            Egoera::AKTIBOA, 
+            Egoera::BERTAN_BEHERA, 
+            Egoera::BUKATUTA, 
+            Egoera::AGORTUTA
+        ];
 
         // Generamos 15 eventos
         for ($i = 1; $i <= 15; $i++) {
             $mota = $ekitaldiMotak[array_rand($ekitaldiMotak)];
             $aforo = rand(100, 300);
+            
+            // Elegimos un estado al azar
+            $egoeraAsignatuta = $egoerak[array_rand($egoerak)];
+            
+            // 3. Si el estado es Agortuta, forzamos que el aforo libre sea 0. Si no, calculamos uno aleatorio.
+            $aforoLibrea = ($egoeraAsignatuta === Egoera::AGORTUTA) ? 0 : rand(10, $aforo);
 
             Ekitaldia::create([
-                'izenburua'      => $mota['izenburua'] ,
+                'izenburua'      => $mota['izenburua'],
                 'deskripzioa'    => 'Bergarako Antzokian ospatuko den ' . $mota['izenburua'] . ' ekitaldiaren deskripzio orokorra.',
-                'ekitaldi_data'  => Carbon::now()->addDays(($i * 10) + rand(1, 5)),
+                'ekitaldi_data'  => Carbon::now()->addDays(($i * 10) + rand(1, 5)), // Arreglado el typo
                 'ordua'          => sprintf('%02d:00:00', rand(17, 21)),
                 'irudia'         => null,
                 'aforo'          => $aforo,
-                'aforo_librea'   => rand(10, $aforo),
-                'egoera'         => $egoerak[array_rand($egoerak)], // Solo valores permitidos ('aktiboa', 'desaktibatuta', 'bertan behera')
+                'aforo_librea'   => $aforoLibrea, // Variable calculada arriba
+                'egoera'         => $egoeraAsignatuta, // Asignamos el Enum
                 'prezio_sarrera' => $mota['prezioa'],
                 'id_sortzailea'  => $admin ? $admin->id : null,
             ]);
