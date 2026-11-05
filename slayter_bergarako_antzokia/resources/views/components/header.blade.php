@@ -1,12 +1,13 @@
-<div x-data="{ menuOpen: false }" class="w-full bg-[#2b56bd] text-white shadow-md relative z-50">
+<div class="w-full bg-[#2b56bd] text-white shadow-md relative z-50">
     <!-- Barra Superior -->
     <header class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center relative">
         
-        <!-- Botón Menú Hamburguesa (Izquierda) -->
+        <!-- Botón Menú Hamburguesa (JS Nativo) -->
         <div class="flex items-center">
             <button 
-                @click="menuOpen = !menuOpen" 
-                class="text-white hover:opacity-80 transition-opacity focus:outline-none p-1" 
+                type="button"
+                onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" 
+                class="text-white hover:opacity-80 transition-opacity focus:outline-none p-1 cursor-pointer" 
                 aria-label="Menú"
             >
                 <svg class="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -15,12 +16,12 @@
             </button>
         </div>
 
-        <!-- Título / Sección (Centro Absoluto) -->
+        <!-- Título / Sección -->
         <div class="absolute left-1/2 transform -translate-x-1/2 text-center font-medium text-lg tracking-wider uppercase pointer-events-none">
             @yield('header-title', 'Bergarako Antzokia')
         </div>
 
-        <!-- Acciones Derecha (Logueado vs Invitado) -->
+        <!-- Acciones Derecha -->
         <div class="flex items-center space-x-4">
             @auth
                 <!-- Ícono Carrito -->
@@ -46,7 +47,6 @@
                                 {{ __('Profila') }}
                             </x-dropdown-link>
 
-                            <!-- Cerrar Sesión -->
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
                                 <x-dropdown-link :href="route('logout')"
@@ -61,7 +61,6 @@
             @endauth
 
             @guest
-                <!-- Enlaces de autenticación cuando NO está logueado -->
                 <a href="{{ route('login') }}" class="no-underline text-white font-medium hover:opacity-80 transition-opacity text-sm uppercase tracking-wider">
                     {{ __('HASI SAIOA') }}
                 </a>
@@ -74,25 +73,17 @@
         </div>
     </header>
 
-    <!-- Menú Desplegable Flotante -->
+    <!-- Menú Desplegable Flotante (Con id="mobile-menu" y clase hidden) -->
     <div 
-        x-show="menuOpen" 
-        @click.outside="menuOpen = false"
-        x-transition:enter="transition ease-out duration-200"
-        x-transition:enter-start="opacity-0 -translate-y-2"
-        x-transition:enter-end="opacity-100 translate-y-0"
-        x-transition:leave="transition ease-in duration-150"
-        x-transition:leave-start="opacity-100 translate-y-0"
-        x-transition:leave-end="opacity-0 -translate-y-2"
-        class="absolute top-full left-0 w-full bg-[#2b56bd] shadow-xl py-2 z-50 border-t border-white/10"
-        x-cloak
+        id="mobile-menu" 
+        class="hidden absolute top-full left-0 w-full bg-[#2b56bd] shadow-xl py-2 z-50 border-t border-white/10"
     >
         <nav class="flex flex-col text-sm font-medium tracking-wider uppercase text-center">
             <a href="/" class="no-underline text-white block w-full py-3.5 hover:bg-white/15 transition-colors">
                 HASIERA
             </a>
 
-            <a href="{{ route('ekitaldiak.kartelera') }}" class="no-underline text-white block w-full py-3.5 hover:bg-white/15 transition-colors">
+            <a href="{{ Route::has('ekitaldiak.kartelera') ? route('ekitaldiak.kartelera') : '/kartelera' }}" class="no-underline text-white block w-full py-3.5 hover:bg-white/15 transition-colors">
                 EKITALDIAK
             </a>
 
@@ -100,16 +91,15 @@
                 SASKIA
             </a>
 
-            <!-- SOLO VISIBLE SI ES ADMINISTRADOR -->
             @if(auth()->check() && auth()->user()->Mota === 'Admin')
                 <div class="w-full border-t border-white/20 my-1"></div>
                 
                 <a href="{{ route('erabiltzaileak.index') }}" class="no-underline text-white block w-full py-3.5 hover:bg-white/15 transition-colors">
-                    ERABILTZAILEEN KUDEAKETA (ADMIN)
+                    ERABILTZAILEEN KUDEAKETA
                 </a>
                 
                 <a href="{{ route('ekitaldiak.index') }}" class="no-underline text-white block w-full py-3.5 hover:bg-white/15 transition-colors">
-                    EKITALDIAK KUDEATU (ADMIN)
+                    EKITALDIAK KUDEATU
                 </a>
             @endif
         </nav>
