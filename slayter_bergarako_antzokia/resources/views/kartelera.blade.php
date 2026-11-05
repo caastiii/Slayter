@@ -44,7 +44,7 @@
             @else
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     @foreach($ekitaldiak as $ekitaldia)
-                        <!-- Tarjeta del Ekitaldi (Estilo exacto de la imagen) -->
+                        <!-- Tarjeta del Ekitaldi -->
                         <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col justify-between">
                             
                             <div>
@@ -55,21 +55,33 @@
                                     @else
                                         <span class="text-gray-400 font-medium text-sm">[Kartelaren Irudia]</span>
                                     @endif
+
+                                    <!-- Badge visual de Estado arriba a la derecha de la imagen -->
+                                    <div class="absolute top-3 right-3">
+                                        <span class="px-2.5 py-1 text-xs font-semibold rounded-full border shadow-sm
+                                            @if($ekitaldia->egoera === 'aktiboa') bg-green-100 text-green-800 border-green-200
+                                            @elseif($ekitaldia->egoera === 'bertan behera') bg-red-100 text-red-800 border-red-200
+                                            @elseif($ekitaldia->egoera === 'beteta') bg-orange-100 text-orange-800 border-orange-200
+                                            @elseif($ekitaldia->egoera === 'bukatuta') bg-gray-100 text-gray-800 border-gray-300
+                                            @else bg-yellow-100 text-yellow-800 border-yellow-200 @endif">
+                                            {{ ucfirst($ekitaldia->egoera ?? 'desaktibatuta') }}
+                                        </span>
+                                    </div>
                                 </div>
 
                                 <!-- Contenido de la Tarjeta -->
                                 <div class="p-6">
-                                    <!-- Categoría / Tipo en azul -->
+                                    <!-- Categoría / Tipo -->
                                     <div class="text-xs text-[#2b56bd] font-bold uppercase tracking-wider mb-2">
                                         {{ $ekitaldia->egoera ?? 'EKITALDIA' }}
                                     </div>
 
-                                    <!-- Título -->
-                                    <h3 class="text-xl font-bold text-gray-900 mb-3 line-clamp-1">
+                                    <!-- Título con truncate para mantener alineación -->
+                                    <h3 class="text-xl font-bold text-gray-900 mb-3 line-clamp-1" title="{{ $ekitaldia->izenburua }}">
                                         {{ $ekitaldia->izenburua }}
                                     </h3>
 
-                                    <!-- Fecha y hora con icono de calendario -->
+                                    <!-- Fecha y hora -->
                                     <div class="flex items-center text-xs text-gray-500 mb-4">
                                         <svg class="w-4 h-4 mr-1.5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
@@ -87,15 +99,22 @@
                                     {{ __('Ikusi') }}
                                 </a>
                                 
-                                <!-- Botón EROSI / SARRERAK EROSI -->
-                                @if(($ekitaldia->aforo_librea ?? 1) > 0)
+                                <!-- Botón EROSI / Bloqueo según Estado y Aforo -->
+                                @if($ekitaldia->egoera === 'aktiboa' && ($ekitaldia->aforo_librea ?? 0) > 0)
                                     <a href="{{ route('erosketak.create', $ekitaldia->id) }}" 
-                                    class="w-1/2 inline-flex justify-center items-center px-4 py-2.5 bg-[#2b56bd] border border-transparent rounded-lg font-semibold text-xs text-white uppercase tracking-wider hover:bg-blue-700 transition duration-150">
+                                       class="w-1/2 inline-flex justify-center items-center px-4 py-2.5 bg-[#2b56bd] border border-transparent rounded-lg font-semibold text-xs text-white uppercase tracking-wider hover:bg-blue-700 transition duration-150">
                                         {{ __('Sarrerak erosi') }}
                                     </a>
+                                @elseif($ekitaldia->egoera === 'bertan behera')
+                                    <button disabled class="w-1/2 inline-flex justify-center items-center px-4 py-2.5 bg-red-100 border border-red-200 rounded-lg font-semibold text-xs text-red-600 uppercase tracking-wider cursor-not-allowed">
+                                        {{ __('Bertan behera') }}
+                                    </button>
+                                @elseif($ekitaldia->egoera === 'bukatuta')
+                                    <button disabled class="w-1/2 inline-flex justify-center items-center px-4 py-2.5 bg-gray-200 border border-gray-300 rounded-lg font-semibold text-xs text-gray-600 uppercase tracking-wider cursor-not-allowed">
+                                        {{ __('Bukatuta') }}
+                                    </button>
                                 @else
-                                    <button disabled 
-                                            class="w-1/2 inline-flex justify-center items-center px-4 py-2.5 bg-gray-300 border border-transparent rounded-lg font-semibold text-xs text-gray-500 uppercase tracking-wider cursor-not-allowed">
+                                    <button disabled class="w-1/2 inline-flex justify-center items-center px-4 py-2.5 bg-orange-100 border border-orange-200 rounded-lg font-semibold text-xs text-orange-700 uppercase tracking-wider cursor-not-allowed">
                                         {{ __('Agortuta') }}
                                     </button>
                                 @endif

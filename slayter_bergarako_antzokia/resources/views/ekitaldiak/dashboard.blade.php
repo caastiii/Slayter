@@ -45,9 +45,11 @@
                                             @endif
                                         </td>
 
-                                        <!-- Izenburua -->
-                                        <td class="px-3 py-3 text-sm font-medium text-gray-900 break-words">
-                                            {{ $ekitaldia->izenburua }}
+                                        <!-- Izenburua (Mugada line-clamp-2-rekin eta title atributuarekin) -->
+                                        <td class="px-3 py-3 text-xs sm:text-sm font-medium text-gray-900 leading-snug">
+                                            <div class="line-clamp-2 break-words" title="{{ $ekitaldia->izenburua }}">
+                                                {{ $ekitaldia->izenburua }}
+                                            </div>
                                         </td>
 
                                         <!-- Data / Ordua -->
@@ -71,6 +73,8 @@
                                             <span class="px-2 py-0.5 inline-flex text-[11px] leading-5 font-semibold rounded-full border
                                                 @if($ekitaldia->egoera === 'aktiboa') bg-green-100 text-green-800 border-green-200
                                                 @elseif($ekitaldia->egoera === 'bertan behera') bg-red-100 text-red-800 border-red-200
+                                                @elseif($ekitaldia->egoera === 'beteta') bg-orange-100 text-orange-800 border-orange-200
+                                                @elseif($ekitaldia->egoera === 'bukatuta') bg-gray-100 text-gray-800 border-gray-300
                                                 @else bg-yellow-100 text-yellow-800 border-yellow-200 @endif">
                                                 {{ ucfirst($ekitaldia->egoera ?? 'desaktibatuta') }}
                                             </span>

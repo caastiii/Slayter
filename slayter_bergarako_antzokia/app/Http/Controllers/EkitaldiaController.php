@@ -33,7 +33,7 @@ class EkitaldiaController extends Controller
             'ordua'          => 'required',
             'aforo'          => 'required|integer|min:1',
             'prezio_sarrera' => 'required|numeric|min:0',
-            'egoera'         => ['required', Rule::in(['aktiboa', 'desaktibatuta', 'bertan behera'])],
+            'egoera'         => ['required', Rule::in(['aktiboa', 'desaktibatuta', 'bertan behera', 'beteta', 'bukatuta'])],
             'irudia'         => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
@@ -79,7 +79,7 @@ class EkitaldiaController extends Controller
             'ordua'          => 'required',
             'aforo'          => 'required|integer|min:1',
             'prezio_sarrera' => 'required|numeric|min:0',
-            'egoera'         => ['required', Rule::in(['aktiboa', 'desaktibatuta', 'bertan behera'])],
+            'egoera'         => ['required', Rule::in(['aktiboa', 'desaktibatuta', 'bertan behera', 'beteta', 'bukatuta'])],
             'irudia'         => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
@@ -113,7 +113,8 @@ class EkitaldiaController extends Controller
 
     public function kartelera()
     {
-        $ekitaldiak = Ekitaldia::all();
+        // Solo enviamos a la cartelera los eventos que estén en estado 'aktiboa'
+        $ekitaldiak = Ekitaldia::where('egoera', 'aktiboa')->get();
 
         // Apunta a resources/views/kartelera.blade.php (Pública)
         return view('kartelera', compact('ekitaldiak'));

@@ -1,6 +1,24 @@
 <x-app-layout>
     <x-header title="EKITALDIA IKUSI" />
 
+    <style>
+        /* Scrollbar leuna eta estéticoa deskripzioarentzat */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #c5c5c5;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #a8a8a8;
+        }
+    </style>
+
     <div class="py-12">
         <div class="max-w-5xl mx-auto sm:px-6 lg:px-8">
             
@@ -25,11 +43,11 @@
             <div class="bg-white overflow-hidden shadow-md sm:rounded-2xl border border-gray-100">
                 <div class="p-6 sm:p-8 text-gray-900">
                     
-                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
                         
                         <!-- Columna Izquierda: Imagen y Estado -->
                         <div class="lg:col-span-1 flex flex-col items-center">
-                            <div class="w-full h-64 bg-gray-100 rounded-xl overflow-hidden shadow-sm border border-gray-200 relative mb-4">
+                            <div class="w-full h-64 bg-gray-100 rounded-xl overflow-hidden shadow-sm border border-gray-200 relative mb-4 flex-shrink-0">
                                 @if($ekitaldia->irudia)
                                     <img src="{{ asset('storage/' . $ekitaldia->irudia) }}" alt="{{ $ekitaldia->izenburua }}" class="w-full h-full object-cover">
                                 @else
@@ -42,46 +60,48 @@
                                 @endif
                             </div>
 
-                            <!-- Badge de Egoera -->
-                            <div class="w-full text-center py-2 px-4 rounded-xl font-bold text-sm uppercase tracking-wider
+                            <!-- Badge de Egoera (Añadidos beteta y bukatuta) -->
+                            <div class="w-full text-center py-2 px-4 rounded-xl font-bold text-xs uppercase tracking-wider
                                 @if($ekitaldia->egoera === 'aktiboa') bg-green-100 text-green-800 border border-green-200
                                 @elseif($ekitaldia->egoera === 'bertan behera') bg-red-100 text-red-800 border border-red-200
-                                @else bg-gray-100 text-gray-800 border border-gray-200 @endif">
-                                {{ $ekitaldia->egoera ?? 'Egoerarik gabe' }}
+                                @elseif($ekitaldia->egoera === 'beteta') bg-orange-100 text-orange-800 border border-orange-200
+                                @elseif($ekitaldia->egoera === 'bukatuta') bg-gray-100 text-gray-800 border border-gray-300
+                                @else bg-yellow-100 text-yellow-800 border border-yellow-200 @endif">
+                                {{ ucfirst($ekitaldia->egoera ?? 'desaktibatuta') }}
                             </div>
                         </div>
 
                         <!-- Columna Derecha: Información Principal -->
-                        <div class="lg:col-span-2 space-y-6">
+                        <div class="lg:col-span-2 space-y-5">
                             
-                            <!-- Título -->
+                            <!-- Título (Ajustado a menor tamaño y máximo 2 líneas) -->
                             <div>
                                 <span class="text-xs font-bold uppercase tracking-wider text-gray-400 block mb-1">Izenburua</span>
-                                <h1 class="text-3xl font-extrabold text-gray-900 leading-tight">
+                                <h1 class="text-xl sm:text-2xl font-bold text-gray-900 leading-snug line-clamp-2" title="{{ $ekitaldia->izenburua }}">
                                     {{ $ekitaldia->izenburua }}
                                 </h1>
                             </div>
 
                             <!-- Métricas Rápidas (Tarjetas) -->
-                            <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                                <div class="bg-gray-50 p-4 rounded-xl border border-gray-100">
-                                    <span class="text-xs font-semibold text-gray-500 uppercase block mb-1">Data & Ordua</span>
-                                    <p class="text-base font-bold text-gray-900">
+                            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                                <div class="bg-gray-50 p-3.5 rounded-xl border border-gray-100">
+                                    <span class="text-[11px] font-semibold text-gray-500 uppercase block mb-0.5">Data & Ordua</span>
+                                    <p class="text-sm font-bold text-gray-900">
                                         {{ \Carbon\Carbon::parse($ekitaldia->ekitaldi_data)->format('Y/m/d') }}
                                     </p>
-                                    <p class="text-sm font-medium text-gray-600">{{ $ekitaldia->ordua }}</p>
+                                    <p class="text-xs font-medium text-gray-600">{{ $ekitaldia->ordua }}</p>
                                 </div>
 
-                                <div class="bg-gray-50 p-4 rounded-xl border border-gray-100">
-                                    <span class="text-xs font-semibold text-gray-500 uppercase block mb-1">Prezioa</span>
-                                    <p class="text-xl font-black text-[#2b56bd]">
+                                <div class="bg-gray-50 p-3.5 rounded-xl border border-gray-100">
+                                    <span class="text-[11px] font-semibold text-gray-500 uppercase block mb-0.5">Prezioa</span>
+                                    <p class="text-lg font-black text-[#2b56bd]">
                                         {{ $ekitaldia->prezio_sarrera > 0 ? number_format($ekitaldia->prezio_sarrera, 2) . ' €' : 'Doan' }}
                                     </p>
                                 </div>
 
-                                <div class="bg-gray-50 p-4 rounded-xl border border-gray-100 col-span-2 sm:col-span-1">
-                                    <span class="text-xs font-semibold text-gray-500 uppercase block mb-1">Aforo Libre / Guztira</span>
-                                    <p class="text-base font-bold text-gray-900">
+                                <div class="bg-gray-50 p-3.5 rounded-xl border border-gray-100 col-span-2 sm:col-span-1">
+                                    <span class="text-[11px] font-semibold text-gray-500 uppercase block mb-0.5">Aforo Libre / Guztira</span>
+                                    <p class="text-sm font-bold text-gray-900">
                                         <span class="{{ $ekitaldia->aforo_librea > 0 ? 'text-green-600' : 'text-red-600' }}">
                                             {{ $ekitaldia->aforo_librea }}
                                         </span> 
@@ -90,12 +110,14 @@
                                 </div>
                             </div>
 
-                            <!-- Deskripzioa -->
-                            <div class="border-t border-gray-100 pt-5">
-                                <span class="text-xs font-bold uppercase tracking-wider text-gray-400 block mb-2">Deskripzioa</span>
-                                <p class="text-gray-700 text-base leading-relaxed bg-gray-50 p-4 rounded-xl border border-gray-100">
-                                    {{ $ekitaldia->deskripzioa ?? 'Ez dago deskripziorik eskuragarri.' }}
-                                </p>
+                            <!-- Deskripzioa (Caja reducida a max-h-28 con scroll) -->
+                            <div class="border-t border-gray-100 pt-4">
+                                <span class="text-xs font-bold uppercase tracking-wider text-gray-400 block mb-1.5">Deskripzioa</span>
+                                <div class="bg-gray-50 p-3.5 rounded-xl border border-gray-100 max-h-28 overflow-y-auto pr-2 custom-scrollbar">
+                                    <p class="text-gray-700 text-xs sm:text-sm leading-relaxed break-words">
+                                        {{ $ekitaldia->deskripzioa ?? 'Ez dago deskripziorik eskuragarri.' }}
+                                    </p>
+                                </div>
                             </div>
 
                         </div>

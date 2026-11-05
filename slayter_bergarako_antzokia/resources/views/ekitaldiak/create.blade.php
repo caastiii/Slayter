@@ -102,7 +102,7 @@
                                     @enderror
                                 </div>
 
-                                <!-- Egoera (Sustituido por <select>) -->
+                                <!-- Egoera -->
                                 <div>
                                     <label for="egoera" class="block text-sm font-medium text-gray-700">Egoera</label>
                                     <div class="mt-1">
@@ -111,6 +111,8 @@
                                             <option value="aktiboa" {{ old('egoera', 'aktiboa') == 'aktiboa' ? 'selected' : '' }}>Aktiboa</option>
                                             <option value="desaktibatuta" {{ old('egoera') == 'desaktibatuta' ? 'selected' : '' }}>Desaktibatuta</option>
                                             <option value="bertan behera" {{ old('egoera') == 'bertan behera' ? 'selected' : '' }}>Bertan behera</option>
+                                            <option value="beteta" {{ old('egoera') == 'beteta' ? 'selected' : '' }}>Beteta</option>
+                                            <option value="bukatuta" {{ old('egoera') == 'bukatuta' ? 'selected' : '' }}>Bukatuta</option>
                                         </select>
                                     </div>
                                     @error('egoera')
@@ -131,8 +133,11 @@
                                 @enderror
                             </div>
 
-                            <!-- Submit Button -->
-                            <div class="flex justify-end">
+                            <!-- Action Buttons (Itzuli & Submit) -->
+                            <div class="flex items-center justify-end space-x-3">
+                                <a href="{{ route('ekitaldiak.index') }}" class="inline-flex items-center justify-center px-4 py-2 bg-gray-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition ease-in-out duration-150">
+                                    Itzuli
+                                </a>
                                 <button type="submit" style="background-color: #4f46e5; color: #ffffff;" class="inline-flex items-center justify-center px-4 py-2 bg-indigo-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-indigo-700 focus:bg-indigo-700 active:bg-indigo-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
                                     Submit
                                 </button>
