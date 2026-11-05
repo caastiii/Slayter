@@ -68,15 +68,15 @@
                                             {{ number_format($ekitaldia->prezio_sarrera, 2) }} €
                                         </td>
 
-                                        <!-- Egoera -->
+                                        <!-- Egoera (Respetando Enums de dev) -->
                                         <td class="px-2 py-3 text-center">
                                             <span class="px-2 py-0.5 inline-flex text-[11px] leading-5 font-semibold rounded-full border
-                                                @if($ekitaldia->egoera === 'aktiboa') bg-green-100 text-green-800 border-green-200
-                                                @elseif($ekitaldia->egoera === 'bertan behera') bg-red-100 text-red-800 border-red-200
-                                                @elseif($ekitaldia->egoera === 'beteta') bg-orange-100 text-orange-800 border-orange-200
-                                                @elseif($ekitaldia->egoera === 'bukatuta') bg-gray-100 text-gray-800 border-gray-300
-                                                @else bg-yellow-100 text-yellow-800 border-yellow-200 @endif">
-                                                {{ ucfirst($ekitaldia->egoera ?? 'desaktibatuta') }}
+                                                @if(($ekitaldia->egoera->value ?? $ekitaldia->egoera) === 'aktiboa') bg-green-100 text-green-800 border-green-200
+                                                @elseif(($ekitaldia->egoera->value ?? $ekitaldia->egoera) === 'beteta' || ($ekitaldia->egoera->value ?? $ekitaldia->egoera) === 'agortuta') bg-orange-100 text-orange-800 border-orange-200
+                                                @elseif(($ekitaldia->egoera->value ?? $ekitaldia->egoera) === 'bukatuta') bg-gray-100 text-gray-800 border-gray-300
+                                                @else bg-red-100 text-red-800 border-red-200 @endif">
+                                                
+                                                {{ ucfirst($ekitaldia->egoera->value ?? $ekitaldia->egoera) }}
                                             </span>
                                         </td>
 

@@ -2,7 +2,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-
+use App\Enums\Egoera;
 class Ekitaldia extends Model
 {
     protected $table = 'ekitaldiak';
@@ -28,6 +28,7 @@ class Ekitaldia extends Model
         'prezio_sarrera' => 'decimal:2',
         'aforo' => 'integer',
         'aforo_librea' => 'integer',
+        'egoera' => Egoera::class, // Laravel convertirá esto automáticamente
     ];
 
     public function sortzailea()

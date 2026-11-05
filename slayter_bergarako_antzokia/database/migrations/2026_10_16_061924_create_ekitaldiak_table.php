@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Enums\Egoera; 
 
 return new class extends Migration
 {
@@ -20,7 +21,12 @@ return new class extends Migration
         $table->string('irudia', 255)->nullable();
         $table->integer('aforo');
         $table->integer('aforo_librea');
-        $table->string('egoera', 50)->nullable();
+        $table->enum('egoera', [
+            Egoera::AKTIBOA->value, 
+            Egoera::BERTAN_BEHERA->value, 
+            Egoera::BUKATUTA->value, 
+            Egoera::AGORTUTA->value
+        ])->default(Egoera::AKTIBOA->value);
         $table->decimal('prezio_sarrera', 10, 2);
         $table->unsignedBigInteger('id_sortzailea');
         $table->timestamps();

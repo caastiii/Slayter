@@ -60,21 +60,21 @@
                                 @endif
                             </div>
 
-                            <!-- Badge de Egoera (Añadidos beteta y bukatuta) -->
+                            <!-- Badge de Egoera (Corregidas las comparaciones y el ucfirst con ->value) -->
                             <div class="w-full text-center py-2 px-4 rounded-xl font-bold text-xs uppercase tracking-wider
-                                @if($ekitaldia->egoera === 'aktiboa') bg-green-100 text-green-800 border border-green-200
-                                @elseif($ekitaldia->egoera === 'bertan behera') bg-red-100 text-red-800 border border-red-200
-                                @elseif($ekitaldia->egoera === 'beteta') bg-orange-100 text-orange-800 border border-orange-200
-                                @elseif($ekitaldia->egoera === 'bukatuta') bg-gray-100 text-gray-800 border border-gray-300
+                                @if(($ekitaldia->egoera->value ?? $ekitaldia->egoera) === 'aktiboa') bg-green-100 text-green-800 border border-green-200
+                                @elseif(($ekitaldia->egoera->value ?? $ekitaldia->egoera) === 'bertan behera') bg-red-100 text-red-800 border border-red-200
+                                @elseif(($ekitaldia->egoera->value ?? $ekitaldia->egoera) === 'beteta' || ($ekitaldia->egoera->value ?? $ekitaldia->egoera) === 'agortuta') bg-orange-100 text-orange-800 border border-orange-200
+                                @elseif(($ekitaldia->egoera->value ?? $ekitaldia->egoera) === 'bukatuta') bg-gray-100 text-gray-800 border border-gray-300
                                 @else bg-yellow-100 text-yellow-800 border border-yellow-200 @endif">
-                                {{ ucfirst($ekitaldia->egoera ?? 'desaktibatuta') }}
+                                {{ ucfirst($ekitaldia->egoera->value ?? $ekitaldia->egoera ?? 'desaktibatuta') }}
                             </div>
                         </div>
 
                         <!-- Columna Derecha: Información Principal -->
                         <div class="lg:col-span-2 space-y-5">
                             
-                            <!-- Título (Ajustado a menor tamaño y máximo 2 líneas) -->
+                            <!-- Título -->
                             <div>
                                 <span class="text-xs font-bold uppercase tracking-wider text-gray-400 block mb-1">Izenburua</span>
                                 <h1 class="text-xl sm:text-2xl font-bold text-gray-900 leading-snug line-clamp-2" title="{{ $ekitaldia->izenburua }}">
@@ -82,7 +82,7 @@
                                 </h1>
                             </div>
 
-                            <!-- Métricas Rápidas (Tarjetas) -->
+                            <!-- Métricas Rápidas -->
                             <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
                                 <div class="bg-gray-50 p-3.5 rounded-xl border border-gray-100">
                                     <span class="text-[11px] font-semibold text-gray-500 uppercase block mb-0.5">Data & Ordua</span>
@@ -110,7 +110,7 @@
                                 </div>
                             </div>
 
-                            <!-- Deskripzioa (Caja reducida a max-h-28 con scroll) -->
+                            <!-- Deskripzioa -->
                             <div class="border-t border-gray-100 pt-4">
                                 <span class="text-xs font-bold uppercase tracking-wider text-gray-400 block mb-1.5">Deskripzioa</span>
                                 <div class="bg-gray-50 p-3.5 rounded-xl border border-gray-100 max-h-28 overflow-y-auto pr-2 custom-scrollbar">

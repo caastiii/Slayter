@@ -59,12 +59,12 @@
                                     <!-- Badge visual de Estado arriba a la derecha de la imagen -->
                                     <div class="absolute top-3 right-3">
                                         <span class="px-2.5 py-1 text-xs font-semibold rounded-full border shadow-sm
-                                            @if($ekitaldia->egoera === 'aktiboa') bg-green-100 text-green-800 border-green-200
-                                            @elseif($ekitaldia->egoera === 'bertan behera') bg-red-100 text-red-800 border-red-200
-                                            @elseif($ekitaldia->egoera === 'beteta') bg-orange-100 text-orange-800 border-orange-200
-                                            @elseif($ekitaldia->egoera === 'bukatuta') bg-gray-100 text-gray-800 border-gray-300
+                                            @if(($ekitaldia->egoera->value ?? $ekitaldia->egoera) === 'aktiboa') bg-green-100 text-green-800 border-green-200
+                                            @elseif(($ekitaldia->egoera->value ?? $ekitaldia->egoera) === 'bertan behera') bg-red-100 text-red-800 border-red-200
+                                            @elseif(($ekitaldia->egoera->value ?? $ekitaldia->egoera) === 'beteta') bg-orange-100 text-orange-800 border-orange-200
+                                            @elseif(($ekitaldia->egoera->value ?? $ekitaldia->egoera) === 'bukatuta') bg-gray-100 text-gray-800 border-gray-300
                                             @else bg-yellow-100 text-yellow-800 border-yellow-200 @endif">
-                                            {{ ucfirst($ekitaldia->egoera ?? 'desaktibatuta') }}
+                                            {{ ucfirst($ekitaldia->egoera->value ?? $ekitaldia->egoera ?? 'desaktibatuta') }}
                                         </span>
                                     </div>
                                 </div>
@@ -73,7 +73,7 @@
                                 <div class="p-6">
                                     <!-- Categoría / Tipo -->
                                     <div class="text-xs text-[#2b56bd] font-bold uppercase tracking-wider mb-2">
-                                        {{ $ekitaldia->egoera ?? 'EKITALDIA' }}
+                                        {{ $ekitaldia->egoera->value ?? $ekitaldia->egoera ?? 'EKITALDIA' }}
                                     </div>
 
                                     <!-- Título con truncate para mantener alineación -->
@@ -93,23 +93,23 @@
 
                             <!-- Botones de Acción (Ikusi e Erosi) -->
                             <div class="px-6 pb-6 pt-0 flex items-center justify-between gap-3">
-                                <!-- Botón IKUSI -->
+                                <!-- Botón IKUSI (Ruta corregida) -->
                                 <a href="{{ route('ekitaldiak.publikoa.show', $ekitaldia->id) }}" 
                                    class="w-1/2 inline-flex justify-center items-center px-4 py-2.5 bg-gray-700 border border-transparent rounded-lg font-semibold text-xs text-white uppercase tracking-wider hover:bg-gray-800 transition duration-150">
                                     {{ __('Ikusi') }}
                                 </a>
                                 
                                 <!-- Botón EROSI / Bloqueo según Estado y Aforo -->
-                                @if($ekitaldia->egoera === 'aktiboa' && ($ekitaldia->aforo_librea ?? 0) > 0)
+                                @if(($ekitaldia->egoera->value ?? $ekitaldia->egoera) === 'aktiboa' && ($ekitaldia->aforo_librea ?? 0) > 0)
                                     <a href="{{ route('erosketak.create', $ekitaldia->id) }}" 
                                        class="w-1/2 inline-flex justify-center items-center px-4 py-2.5 bg-[#2b56bd] border border-transparent rounded-lg font-semibold text-xs text-white uppercase tracking-wider hover:bg-blue-700 transition duration-150">
                                         {{ __('Sarrerak erosi') }}
                                     </a>
-                                @elseif($ekitaldia->egoera === 'bertan behera')
+                                @elseif(($ekitaldia->egoera->value ?? $ekitaldia->egoera) === 'bertan behera')
                                     <button disabled class="w-1/2 inline-flex justify-center items-center px-4 py-2.5 bg-red-100 border border-red-200 rounded-lg font-semibold text-xs text-red-600 uppercase tracking-wider cursor-not-allowed">
                                         {{ __('Bertan behera') }}
                                     </button>
-                                @elseif($ekitaldia->egoera === 'bukatuta')
+                                @elseif(($ekitaldia->egoera->value ?? $ekitaldia->egoera) === 'bukatuta')
                                     <button disabled class="w-1/2 inline-flex justify-center items-center px-4 py-2.5 bg-gray-200 border border-gray-300 rounded-lg font-semibold text-xs text-gray-600 uppercase tracking-wider cursor-not-allowed">
                                         {{ __('Bukatuta') }}
                                     </button>
