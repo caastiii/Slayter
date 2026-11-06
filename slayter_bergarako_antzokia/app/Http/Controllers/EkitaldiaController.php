@@ -114,8 +114,8 @@ class EkitaldiaController extends Controller
 
     public function kartelera()
     {
-        // Solo enviamos a la cartelera pública los eventos en estado activo usando el Enum o su valor escalar
-        $ekitaldiak = Ekitaldia::where('egoera', Egoera::AKTIBOA->value ?? 'aktiboa')->get();
+        // Enviamos a la cartelera todos los eventos excepto los que están terminados ('bukatuta')
+        $ekitaldiak = Ekitaldia::where('egoera', '!=', Egoera::BUKATUTA->value ?? 'bukatuta')->get();
 
         // Apunta a resources/views/kartelera.blade.php (Pública)
         return view('kartelera', compact('ekitaldiak'));
