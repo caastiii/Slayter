@@ -30,10 +30,10 @@
             </div>
         @endif
 
-        <!-- Taula edukiontzia (Scroll horizontala mugikorrean) -->
-        <div class="bg-white shadow-md rounded-lg border border-gray-200 overflow-x-auto">
+        <!-- Taula edukiontzia (Altura relativa a la pantalla h-[calc(100vh-280px)] y scroll vertical) -->
+        <div class="bg-white shadow-md rounded-lg border border-gray-200 overflow-x-auto overflow-y-auto h-[calc(100vh-280px)]">
             <table class="min-w-[640px] w-full divide-y divide-gray-200">
-                <thead class="bg-gray-50">
+                <thead class="bg-gray-50 sticky top-0 z-10 shadow-sm">
                     <tr>
                         <th scope="col" class="px-4 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Izena</th>
                         <th scope="col" class="px-4 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Abizena</th>
