@@ -62,7 +62,7 @@
                     @endif
 
                     <span class="absolute top-4 left-4 bg-[#2b56bd] text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
-                        {{ $ekitaldia->egoera ?? 'Ekitaldia' }}
+                        {{ $ekitaldia->egoera->value ?? $ekitaldia->egoera ?? 'Ekitaldia' }}
                     </span>
                 </div>
 
@@ -107,15 +107,15 @@
 
                     <!-- Erosi Botoia -->
                     <div class="pt-3 border-t border-gray-100">
-                        @if($ekitaldia->egoera === 'aktiboa' && ($ekitaldia->aforo_librea ?? 0) > 0)
+                        @if(($ekitaldia->egoera->value ?? $ekitaldia->egoera) === 'aktiboa' && ($ekitaldia->aforo_librea ?? 0) > 0)
                             <a href="{{ route('erosketak.create', $ekitaldia->id) }}" class="w-full inline-flex justify-center items-center px-4 py-2.5 bg-[#2b56bd] border border-transparent rounded-xl font-extrabold text-xs sm:text-sm text-white uppercase tracking-wider hover:bg-blue-700 transition duration-150 shadow-md">
                                 {{ __('Erosi Sarrerak') }}
                             </a>
-                        @elseif($ekitaldia->egoera === 'bertan behera')
+                        @elseif(($ekitaldia->egoera->value ?? $ekitaldia->egoera) === 'bertan behera')
                             <button disabled class="w-full inline-flex justify-center items-center px-4 py-2.5 bg-red-100 border border-red-200 rounded-xl font-extrabold text-xs sm:text-sm text-red-600 uppercase tracking-wider cursor-not-allowed">
                                 {{ __('Bertan behera') }}
                             </button>
-                        @elseif($ekitaldia->egoera === 'bukatuta')
+                        @elseif(($ekitaldia->egoera->value ?? $ekitaldia->egoera) === 'bukatuta')
                             <button disabled class="w-full inline-flex justify-center items-center px-4 py-2.5 bg-gray-200 border border-gray-300 rounded-xl font-extrabold text-xs sm:text-sm text-gray-600 uppercase tracking-wider cursor-not-allowed">
                                 {{ __('Bukatuta') }}
                             </button>
