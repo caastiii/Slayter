@@ -14,7 +14,7 @@
 
             <!-- Columna 2: Mapa -->
             <div>
-                <h3 class="text-white text-xl font-bold mb-4 tracking-wide border-b border-blue-400 pb-2 inline-block md:block w-full">Kokapena / Ubicación</h3>
+                <h3 class="text-white text-xl font-bold mb-4 tracking-wide border-b border-blue-400 pb-2 inline-block md:block w-full">Kokapena</h3>
                 
                 <div class="w-full h-64 rounded-lg overflow-hidden shadow-lg border border-blue-400">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2912.378585854837!2d-2.4162649234912044!3d43.11757258690828!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd502b045412d719%3A0x614bd5746874a8a6!2sSan%20Martin%20Agirre%20Plaza%2C%204%2C%2020570%20Bergara%2C%20Gipuzkoa!5e0!3m2!1ses!2ses!4v1792578697250!5m2!1ses!2ses" class="w-full h-full border-0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
