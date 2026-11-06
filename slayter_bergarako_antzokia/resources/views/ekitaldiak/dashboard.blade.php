@@ -19,10 +19,10 @@
                         </a>
                     </div>
 
-                    <!-- Taula edukiontzia (Scroll horizontala mugikorrean) -->
-                    <div class="border border-gray-200 rounded-lg overflow-x-auto shadow-sm">
+                    <!-- Taula edukiontzia (Altitud dinámica adaptada a la pantalla: calc(100vh - 280px)) -->
+                    <div class="border border-gray-200 rounded-lg overflow-x-auto overflow-y-auto h-[calc(100vh-280px)] shadow-sm">
                         <table class="w-full divide-y divide-gray-200 text-left min-w-[750px]">
-                            <thead class="bg-gray-50">
+                            <thead class="bg-gray-50 sticky top-0 z-10 shadow-sm">
                                 <tr>
                                     <th scope="col" class="w-12 px-3 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider text-center">Irudia</th>
                                     <th scope="col" class="px-3 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Izenburua</th>
