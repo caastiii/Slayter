@@ -114,8 +114,11 @@ class EkitaldiaController extends Controller
 
     public function kartelera()
     {
-        // Enviamos a la cartelera todos los eventos excepto los que están terminados ('bukatuta')
-        $ekitaldiak = Ekitaldia::where('egoera', '!=', Egoera::BUKATUTA->value ?? 'bukatuta')->get();
+        // Excluimos los 'bukatuta' y ordenamos por fecha y hora (los más próximos primero)
+        $ekitaldiak = Ekitaldia::where('egoera', '!=', Egoera::BUKATUTA->value ?? 'bukatuta')
+            ->orderBy('ekitaldi_data', 'asc')
+            ->orderBy('ordua', 'asc')
+            ->get();
 
         // Apunta a resources/views/kartelera.blade.php (Pública)
         return view('kartelera', compact('ekitaldiak'));
