@@ -114,16 +114,14 @@ class EkitaldiaController extends Controller
 
     public function kartelera()
     {
-        // Excluimos los 'bukatuta' y ordenamos por fecha y hora (los más próximos primero)
         $ekitaldiak = Ekitaldia::where('egoera', '!=', Egoera::BUKATUTA->value ?? 'bukatuta')
             ->orderBy('ekitaldi_data', 'asc')
             ->orderBy('ordua', 'asc')
-            ->get();
+            ->paginate(10);
 
-        // Apunta a resources/views/kartelera.blade.php (Pública)
         return view('kartelera', compact('ekitaldiak'));
     }
-
+    
     public function showPublikoa($id)
     {
         $ekitaldia = Ekitaldia::findOrFail($id);

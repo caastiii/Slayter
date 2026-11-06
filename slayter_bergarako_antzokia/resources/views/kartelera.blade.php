@@ -93,7 +93,7 @@
 
                             <!-- Botones de Acción (Ikusi e Erosi) -->
                             <div class="px-6 pb-6 pt-0 flex items-center justify-between gap-3">
-                                <!-- Botón IKUSI (Ruta corregida) -->
+                                <!-- Botón IKUSI -->
                                 <a href="{{ route('ekitaldiak.publikoa.show', $ekitaldia->id) }}" 
                                    class="w-1/2 inline-flex justify-center items-center px-4 py-2.5 bg-gray-700 border border-transparent rounded-lg font-semibold text-xs text-white uppercase tracking-wider hover:bg-gray-800 transition duration-150">
                                     {{ __('Ikusi') }}
@@ -123,6 +123,12 @@
                         </div>
                     @endforeach
                 </div>
+
+                <!-- Paginación -->
+                <div class="mt-12">
+                    {{ $ekitaldiak->links() }}
+                </div>
+
             @endif
 
         </main>
