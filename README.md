@@ -74,7 +74,7 @@ Erronka honen bitartez, bezeroaren eskakizun nagusiei arrakastaz erantzutea lort
 
 ## 8. Eranskinak
 
-Ondorengo eranskinak errepositorioko `EranskinFinalak` karpetan daude ikusgai:
+Ondorengo eranskinak errepositorioan daude ikusgai:
 
 - 📁 [I.- Eranskina: Talde kontratua](EranskinFinalak/Slayter_TaldeKontratua.pdf)
 - 📁 [V.- Web orrialdea publikatzeko pausuak](EranskinFinalak/)
