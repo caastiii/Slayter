@@ -50,7 +50,7 @@
         <div class="mt-10 pt-6 border-t border-blue-400 text-center text-sm text-blue-200">
             <p>&copy; {{ date('Y') }} Bergarako Antzokia</p>
             <p class="mt-1">
-                Proiektu hau <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.eu" target="_blank" rel="noopener noreferrer" class="underline hover:text-white transition-colors">CC BY-NC-SA 4.0</a> lizentziapean dago.
+                Orrialde hau <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.eu" target="_blank" rel="noopener noreferrer" class="underline hover:text-white transition-colors">CC BY-NC-SA 4.0</a> lizentziapean dago.
             </p>
         </div>
     </div>
