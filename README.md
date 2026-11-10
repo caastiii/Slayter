@@ -9,7 +9,8 @@
 5. [Baliabideak (Giza baliabideak eta baliabide materialak)](#5-baliabideak-giza-baliabideak-eta-baliabide-materialak)
 6. [Ondorioak](#6-ondorioak)
 7. [Bibliografia](#7-bibliografia)
-8. [Eranskinak](#8-eranskinak)
+8. [Edukien lizentzia](#8-edukien-lizentzia)
+9. [Eranskinak](#9-eranskinak)
 
 ---
 
@@ -72,10 +73,24 @@ Erronka honen bitartez, bezeroaren eskakizun nagusiei arrakastaz erantzutea lort
 - **Prototipadoa:** Figma
 - **Laguntza / AA:** Google Gemini
 
-## 8. Eranskinak
+## 8. Edukien lizentzia
+
+Proiektu hau formalki enpresa bati saltzeko garatu den arren, kodea irekian uztea erabaki dugu, jendeak erreferentzia gisa erabili eta aldatu ahal izateko.
+
+Hori dela eta, lan hau _Creative Commons Atribuzioa-Ez Komertziala-Partekatu Berdin 4.0 Nazioarteko Lizentziapean (CC BY-NC-SA 4.0)_ argitaratzen da.
+
+Erabilera baldintza nagusiak:
+
+- _Aitortza (BY):_ Proiektua edo kodea berrerabili, kopiatu edo aldatuz gero, _Slayter Taldea_ aipatu behar da nahitaez.
+- _Ez Komertziala (NC):_ Ezin da gure kodea erabili hirugarrenek irabazi ekonomikoak lortzeko (ezin da saldu ezta erabilera komertzialik eman ere).
+- _Partekatu Berdin (SA):_ Gure proiektutik eratorritako lanek edo aldaketek lizentzia bera mantendu behar dute derrigorrez.
+
+## 9. Eranskinak
 
 Ondorengo eranskinak errepositorioan daude ikusgai:
 
-- 📁 [I.- Eranskina: Talde kontratua](EranskinFinalak/Slayter_TaldeKontratua.pdf)
-- 📁 [V.- Web orrialdea publikatzeko pausuak](EranskinFinalak/)
-- 📁 [VI.- Erabiltzaile eta administradoreen loginak](slayter_bergarako_antzokia/)
+- [I.- Eranskina: Talde kontratua](EranskinFinalak/Slayter_TaldeKontratua.pdf)
+- [V.- Web orrialdea publikatzeko pausuak](EranskinFinalak/)
+- [VI.- Erabiltzaile eta administradoreen loginak](slayter_bergarako_antzokia/)
+
+_©️ 2026 Slayter Taldea._
