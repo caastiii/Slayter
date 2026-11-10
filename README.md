@@ -6,7 +6,7 @@
 2. [Testuingurua](#2-testuingurua)
 3. [Helburuak](#3-helburuak)
 4. [Zereginak](#4-zereginak)
-5. [Baliabideak (Giza baliabideak eta baliabide materialak)](#5-baliabideak-giza-baliabideak-eta-baliabide-materialak)
+5. [Baliabideak](#5-baliabideak)
 6. [Ondorioak](#6-ondorioak)
 7. [Bibliografia](#7-bibliografia)
 8. [Edukien lizentzia](#8-edukien-lizentzia)
@@ -46,7 +46,7 @@ Proiektua aurrera eramateko honako zeregin nagusiak burutu dira:
 5. **Hedapena (Deployment):** Apache Lounge erabiliz web aplikazioa sarean eskuragarri jartzea.
 6. **Dokumentazioa:** Proiektuaren memoria, prototipoak eta beharrezko eranskin guztiak idatzi eta GitHub bidez kudeatzea.
 
-## 5. Baliabideak (Giza baliabideak eta baliabide materialak)
+## 5. Baliabideak
 
 **Giza baliabideak:**
 
