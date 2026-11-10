@@ -89,8 +89,8 @@ Erabilera baldintza nagusiak:
 
 Ondorengo eranskinak errepositorioan daude ikusgai:
 
-- [I.- Eranskina: Talde kontratua](EranskinFinalak/Slayter_TaldeKontratua.pdf)
-- [V.- Web orrialdea publikatzeko pausuak](EranskinFinalak/)
-- [VI.- Erabiltzaile eta administradoreen loginak](slayter_bergarako_antzokia/)
+- [Eranskina: Talde kontratua](EranskinFinalak/Slayter_TaldeKontratua.pdf)
+- [Web orrialdea publikatzeko pausuak](EranskinFinalak/)
+- [Erabiltzaile eta administradoreen loginak](slayter_bergarako_antzokia/)
 
-_©️ 2026 Slayter Taldea._
+_©️ 2026 Slayter._
