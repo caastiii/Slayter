@@ -30,36 +30,74 @@
             </div>
         @endif
 
-        <!-- Taula edukiontzia (Altura relativa a la pantalla h-[calc(100vh-280px)] y scroll vertical) -->
-        <div class="bg-white shadow-md rounded-lg border border-gray-200 overflow-x-auto overflow-y-auto h-[calc(100vh-280px)]">
-            <table class="min-w-[640px] w-full divide-y divide-gray-200">
+        <!-- Taula edukiontzia (Scroll bertikala soilik) -->
+        <div class="bg-white shadow-md rounded-lg border border-gray-200 overflow-y-auto overflow-x-hidden h-[calc(100vh-280px)]">
+            <table class="w-full divide-y divide-gray-200">
                 <thead class="bg-gray-50 sticky top-0 z-10 shadow-sm">
                     <tr>
-                        <th scope="col" class="px-4 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Izena</th>
-                        <th scope="col" class="px-4 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Abizena</th>
-                        <th scope="col" class="px-4 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Emaila</th>
-                        <th scope="col" class="px-4 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Mota</th>
-                        <th scope="col" class="px-4 sm:px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Ekintzak</th>
+                        <th scope="col" class="px-3 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Izena</th>
+                        <th scope="col" class="px-3 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Abizena</th>
+                        <th scope="col" class="hidden md:table-cell px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Emaila</th>
+                        <th scope="col" class="px-3 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Mota</th>
+                        <th scope="col" class="hidden md:table-cell px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Ekintzak</th>
+                        <th scope="col" class="md:hidden px-3 py-3 w-8"><span class="sr-only">Ireki</span></th>
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
                     @foreach($erabiltzaileak as $user)
-                        <tr class="hover:bg-gray-50 transition-colors">
-                            <td class="px-4 sm:px-6 py-3.5 whitespace-nowrap text-sm font-medium text-gray-900">{{ $user->name }}</td>
-                            <td class="px-4 sm:px-6 py-3.5 whitespace-nowrap text-sm text-gray-500">{{ $user->Abizena }}</td>
-                            <td class="px-4 sm:px-6 py-3.5 whitespace-nowrap text-sm text-gray-500">{{ $user->email }}</td>
-                            <td class="px-4 sm:px-6 py-3.5 whitespace-nowrap text-sm text-gray-500">
-                                <span class="px-2.5 py-0.5 inline-flex text-xs leading-5 font-semibold rounded-full {{ strtolower($user->Mota) === 'admin' ? 'bg-purple-100 text-purple-800 border border-purple-200' : 'bg-green-100 text-green-800 border border-green-200' }}">
-                                    {{ ucfirst($user->Mota) }}
-                                </span>
+                        <!-- Fila principal del usuario -->
+                        <tr onclick="toggleUserRow({{ $user->id }})" class="hover:bg-gray-50 transition-colors cursor-pointer md:cursor-default">
+                            <td class="px-3 sm:px-6 py-3.5 text-sm font-medium text-gray-900 break-words">
+                                {{ $user->name }}
                             </td>
-                            <td class="px-4 sm:px-6 py-3.5 whitespace-nowrap text-right text-sm font-medium">
+                            <td class="px-3 sm:px-6 py-3.5 text-sm text-gray-500 break-words">
+                                {{ $user->Abizena }}
+                            </td>
+                            <td class="hidden md:table-cell px-6 py-3.5 whitespace-nowrap text-sm text-gray-500">
+                                {{ $user->email }}
+                            </td>
+                            <td class="px-3 sm:px-6 py-3.5 whitespace-nowrap text-sm text-gray-500">
+                                {{ ucfirst($user->Mota) }}
+                            </td>
+                            
+                            <!-- Ekintzak en Ordenador -->
+                            <td class="hidden md:table-cell px-6 py-3.5 whitespace-nowrap text-right text-sm font-medium">
                                 <a href="{{ route('erabiltzaileak.edit', $user->id) }}" class="text-indigo-600 hover:text-indigo-900 mr-3 font-semibold">Editatu</a>
                                 <form action="{{ route('erabiltzaileak.destroy', $user->id) }}" method="POST" class="inline-block" onsubmit="return confirm('Ziur zaude erabiltzaile hau ezabatu nahi duzula?');">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="text-red-600 hover:text-red-900 font-semibold">Ezabatu</button>
                                 </form>
+                            </td>
+
+                            <!-- Indicador desplegable solo en Móvil -->
+                            <td class="md:hidden px-3 py-3.5 text-right text-gray-400">
+                                <svg id="chevron-{{ $user->id }}" class="w-4 h-4 inline-block transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </td>
+                        </tr>
+
+                        <!-- Fila desplegable de acciones y email en Móvil -->
+                        <tr id="actions-row-{{ $user->id }}" class="hidden md:hidden bg-gray-50">
+                            <td colspan="4" class="px-4 py-3 text-sm">
+                                <div class="flex flex-col gap-3">
+                                    <div class="text-xs text-gray-500 truncate">
+                                        <span class="font-semibold text-gray-700">Emaila:</span> {{ $user->email }}
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <a href="{{ route('erabiltzaileak.edit', $user->id) }}" class="flex-1 text-center py-2 px-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-md font-semibold text-xs uppercase tracking-wider transition">
+                                            Editatu
+                                        </a>
+                                        <form action="{{ route('erabiltzaileak.destroy', $user->id) }}" method="POST" class="flex-1" onsubmit="return confirm('Ziur zaude erabiltzaile hau ezabatu nahi duzula?');">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="w-full py-2 px-3 bg-red-600 hover:bg-red-700 text-white rounded-md font-semibold text-xs uppercase tracking-wider transition">
+                                                Ezabatu
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
                             </td>
                         </tr>
                     @endforeach
@@ -68,5 +106,20 @@
         </div>
     </main>
 
+    <script>
+        function toggleUserRow(userId) {
+            if (window.innerWidth >= 768) return;
+
+            const row = document.getElementById('actions-row-' + userId);
+            const chevron = document.getElementById('chevron-' + userId);
+
+            if (row) {
+                row.classList.toggle('hidden');
+            }
+            if (chevron) {
+                chevron.classList.toggle('rotate-180');
+            }
+        }
+    </script>
 </body>
 </html>
