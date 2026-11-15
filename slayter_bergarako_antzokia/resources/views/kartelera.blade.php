@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>{{ config('app.name', 'Bergarako Antzokia') }} - Kartelera</title>
+        <title>Ekitaldiak - {{ config('app.name', 'Bergarako Antzokia') }}</title>
 
         @fonts
 
