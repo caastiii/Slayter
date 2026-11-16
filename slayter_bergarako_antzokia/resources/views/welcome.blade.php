@@ -58,7 +58,7 @@
                                         @if($ekitaldia->irudia)
                                             <img src="{{ asset('storage/' . $ekitaldia->irudia) }}" alt="{{ $ekitaldia->izenburua }}" class="w-full h-full object-cover">
                                         @else
-                                            <span class="text-gray-400 font-medium text-sm">[Kartelaren Irudia]</span>
+                                            <span class="text-gray-400 font-medium text-sm">{{ $ekitaldia->izenburua }}</span>
                                         @endif
                                     </div>
 

@@ -27,6 +27,17 @@ class DatabaseSeeder extends Seeder
                 'id_sortzailea' => null,
             ]
         );
+        // Erabiltzaile Arrunta
+        $arrunta = User::updateOrCreate(
+            ['email' => 'user01@gmail.com'],
+            [
+                'name'          => 'Erabiltzaile',
+                'Abizena'       => 'Proba',
+                'Mota'          => 'Arrunta',
+                'password'      => Hash::make('arrunta123'),
+                'id_sortzailea' => null,
+            ]
+        );
 
         // 2. Llamar al Seeder de eventos
         $this->call([

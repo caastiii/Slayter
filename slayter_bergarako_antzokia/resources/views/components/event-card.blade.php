@@ -5,7 +5,7 @@
         @if($image)
             <img src="{{ $image }}" alt="{{ $title }}" class="w-full h-full object-cover">
         @else
-            <span class="text-sm">[Kartelaren Irudia]</span>
+            <span class="text-sm">{{ $ekitaldia->izenburua }}</span>
         @endif
     </div>
     <div class="p-6">
