@@ -1,23 +1,23 @@
 <div class="w-full bg-[#2b56bd] text-white shadow-md relative z-50">
     <!-- Barra Superior -->
-    <header class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center relative">
+    <header class="max-w-7xl mx-auto px-3 sm:px-4 py-3 flex justify-between items-center gap-2 relative">
         
         <!-- Izquierda: Hamburguesa (Móvil) + Título y Enlaces (Ordenador) -->
-        <div class="flex items-center lg:space-x-6">
+        <div class="flex items-center flex-1 lg:flex-initial min-w-0 lg:space-x-6">
             <!-- Botón Menú Hamburguesa (Solo móvil/tablet) -->
             <button 
-                type="button"
+                type="button" 
                 onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" 
-                class="lg:hidden text-white hover:opacity-80 transition-opacity focus:outline-none p-1 cursor-pointer" 
+                class="lg:hidden flex-shrink-0 text-white hover:opacity-80 transition-opacity focus:outline-none p-1 cursor-pointer" 
                 aria-label="Menú"
             >
-                <svg class="w-8 h-8 sm:w-9 sm:h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-7 h-7 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
             </button>
 
-            <!-- Título / Marca (Centrado exacto en móvil, estático a la izquierda en ordenador) -->
-            <a href="/" class="no-underline text-white absolute left-1/2 transform -translate-x-1/2 lg:static lg:transform-none text-center lg:text-left font-bold text-[13px] sm:text-lg tracking-wider uppercase whitespace-nowrap max-w-[200px] sm:max-w-none truncate">
+            <!-- Título / Marca (Centrado en el espacio disponible en móvil, a la izquierda en ordenador) -->
+            <a href="/" class="no-underline text-white flex-1 lg:flex-initial text-center lg:text-left font-bold text-xs sm:text-base lg:text-lg tracking-wider uppercase leading-tight sm:whitespace-nowrap px-1">
                 @yield('header-title', 'Bergarako Antzokia')
             </a>
 
@@ -51,7 +51,7 @@
         </div>
 
         <!-- Acciones Derecha -->
-        <div class="flex items-center space-x-2.5 sm:space-x-4">
+        <div class="flex items-center flex-shrink-0 space-x-2 sm:space-x-4">
             @auth
                 <!-- Ícono Saskia (Entradas) -->
                 <a href="/saskia" class="no-underline text-white hover:opacity-80 transition-opacity" title="Saskia">
@@ -90,11 +90,11 @@
             @endauth
 
             @guest
-                <a href="{{ route('login') }}" class="no-underline text-white font-medium hover:opacity-80 transition-opacity text-xs sm:text-sm uppercase tracking-wider whitespace-nowrap">
+                <a href="{{ route('login') }}" class="no-underline text-white font-medium hover:opacity-80 transition-opacity text-[11px] sm:text-sm uppercase tracking-wider whitespace-nowrap">
                     {{ __('HASI SAIOA') }}
                 </a>
                 @if (Route::has('register'))
-                    <a href="{{ route('register') }}" class="no-underline bg-white text-[#2b56bd] px-2.5 sm:px-3 py-1 rounded-md text-xs sm:text-sm font-semibold hover:bg-gray-100 transition-colors uppercase tracking-wider whitespace-nowrap">
+                    <a href="{{ route('register') }}" class="no-underline bg-white text-[#2b56bd] px-2 sm:px-3 py-1 rounded-md text-[11px] sm:text-sm font-semibold hover:bg-gray-100 transition-colors uppercase tracking-wider whitespace-nowrap">
                         {{ __('ERREGISTRATU') }}
                     </a>
                 @endif

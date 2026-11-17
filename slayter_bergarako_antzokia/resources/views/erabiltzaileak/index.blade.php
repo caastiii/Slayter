@@ -30,8 +30,37 @@
             </div>
         @endif
 
+        <!-- Bilatzailea -->
+        <div class="mb-4">
+            <div class="relative w-full sm:max-w-md">
+                <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5 text-gray-400">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35m1.85-5.15a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </div>
+                <input 
+                    type="text" 
+                    id="user-search-input" 
+                    oninput="filterUsers()" 
+                    placeholder="Bilatu izena, abizena, emaila edo mota..." 
+                    class="w-full pl-10 pr-10 py-2.5 bg-white border border-gray-300 rounded-lg text-sm text-gray-900 placeholder-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#2b56bd] focus:border-[#2b56bd] transition"
+                >
+                <button 
+                    type="button" 
+                    id="clear-search-btn" 
+                    onclick="clearUserSearch()" 
+                    class="hidden absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 hover:text-gray-600 cursor-pointer"
+                    title="Garbitu"
+                >
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
         <!-- Taula edukiontzia (Scroll bertikala soilik) -->
-        <div class="bg-white shadow-md rounded-lg border border-gray-200 overflow-y-auto overflow-x-hidden h-[calc(100vh-280px)]">
+        <div class="bg-white shadow-md rounded-lg border border-gray-200 overflow-y-auto overflow-x-hidden h-[calc(100vh-335px)]">
             <table class="w-full divide-y divide-gray-200">
                 <thead class="bg-gray-50 sticky top-0 z-10 shadow-sm">
                     <tr>
@@ -46,7 +75,12 @@
                 <tbody class="bg-white divide-y divide-gray-200">
                     @foreach($erabiltzaileak as $user)
                         <!-- Fila principal del usuario -->
-                        <tr onclick="toggleUserRow({{ $user->id }})" class="hover:bg-gray-50 transition-colors cursor-pointer md:cursor-default">
+                        <tr 
+                            onclick="toggleUserRow({{ $user->id }})" 
+                            data-user-id="{{ $user->id }}"
+                            data-search="{{ mb_strtolower($user->name . ' ' . $user->Abizena . ' ' . $user->email . ' ' . $user->Mota, 'UTF-8') }}"
+                            class="user-row hover:bg-gray-50 transition-colors cursor-pointer md:cursor-default"
+                        >
                             <td class="px-3 sm:px-6 py-3.5 text-sm font-medium text-gray-900 break-words">
                                 {{ $user->name }}
                             </td>
@@ -101,6 +135,13 @@
                             </td>
                         </tr>
                     @endforeach
+
+                    <!-- Mezua emaitzarik ez dagoenean -->
+                    <tr id="no-results-row" class="hidden">
+                        <td colspan="6" class="px-6 py-10 text-center text-sm text-gray-500">
+                            Ez da bilaketarekin bat datorren erabiltzailerik aurkitu.
+                        </td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -119,6 +160,51 @@
             if (chevron) {
                 chevron.classList.toggle('rotate-180');
             }
+        }
+
+        function normalizeText(text) {
+            return text
+                .toLowerCase()
+                .normalize('NFD')
+                .replace(/[\u0300-\u036f]/g, '');
+        }
+
+        function filterUsers() {
+            const input = document.getElementById('user-search-input');
+            const clearBtn = document.getElementById('clear-search-btn');
+            const query = normalizeText(input.value.trim());
+            const rows = document.querySelectorAll('.user-row');
+            const noResultsRow = document.getElementById('no-results-row');
+            let visibleCount = 0;
+
+            clearBtn.classList.toggle('hidden', query.length === 0);
+
+            rows.forEach(row => {
+                const searchData = normalizeText(row.getAttribute('data-search') || '');
+                const userId = row.getAttribute('data-user-id');
+                const actionsRow = document.getElementById('actions-row-' + userId);
+                const chevron = document.getElementById('chevron-' + userId);
+
+                if (searchData.includes(query)) {
+                    row.classList.remove('hidden');
+                    visibleCount++;
+                } else {
+                    row.classList.add('hidden');
+                    if (actionsRow) actionsRow.classList.add('hidden');
+                    if (chevron) chevron.classList.remove('rotate-180');
+                }
+            });
+
+            if (noResultsRow) {
+                noResultsRow.classList.toggle('hidden', visibleCount > 0);
+            }
+        }
+
+        function clearUserSearch() {
+            const input = document.getElementById('user-search-input');
+            input.value = '';
+            filterUsers();
+            input.focus();
         }
     </script>
 </body>

@@ -30,8 +30,37 @@
             </div>
         @endif
 
+        <!-- Bilatzailea -->
+        <div class="mb-4">
+            <div class="relative w-full sm:max-w-md">
+                <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5 text-gray-400">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35m1.85-5.15a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </div>
+                <input 
+                    type="text" 
+                    id="ekitaldi-search-input" 
+                    oninput="filterEkitaldiak()" 
+                    placeholder="Bilatu izenburua, data, prezioa edo egoera..." 
+                    class="w-full pl-10 pr-10 py-2.5 bg-white border border-gray-300 rounded-lg text-sm text-gray-900 placeholder-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#2b56bd] focus:border-[#2b56bd] transition"
+                >
+                <button 
+                    type="button" 
+                    id="clear-ekitaldi-search-btn" 
+                    onclick="clearEkitaldiSearch()" 
+                    class="hidden absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 hover:text-gray-600 cursor-pointer"
+                    title="Garbitu"
+                >
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
         <!-- Taula edukiontzia (Scroll bertikala soilik) -->
-        <div class="bg-white shadow-md rounded-lg border border-gray-200 overflow-y-auto overflow-x-hidden h-[calc(100vh-280px)]">
+        <div class="bg-white shadow-md rounded-lg border border-gray-200 overflow-y-auto overflow-x-hidden h-[calc(100vh-335px)]">
             <table class="w-full divide-y divide-gray-200 text-left">
                 <thead class="bg-gray-50 sticky top-0 z-10 shadow-sm">
                     <tr>
@@ -47,8 +76,19 @@
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
                     @foreach($ekitaldiak as $ekitaldia)
+                        @php
+                            $egoeraBalioa = $ekitaldia->egoera->value ?? $ekitaldia->egoera;
+                            $dataFormatted = \Carbon\Carbon::parse($ekitaldia->ekitaldi_data)->format('Y-m-d');
+                            $prezioFormatted = number_format($ekitaldia->prezio_sarrera, 2);
+                        @endphp
+
                         <!-- Fila principal del evento -->
-                        <tr onclick="toggleEkitaldiRow({{ $ekitaldia->id }})" class="hover:bg-gray-50 transition-colors cursor-pointer md:cursor-default">
+                        <tr 
+                            onclick="toggleEkitaldiRow({{ $ekitaldia->id }})" 
+                            data-ekitaldi-id="{{ $ekitaldia->id }}"
+                            data-search="{{ mb_strtolower($ekitaldia->izenburua . ' ' . $dataFormatted . ' ' . $ekitaldia->ordua . ' ' . $prezioFormatted . ' ' . $egoeraBalioa, 'UTF-8') }}"
+                            class="ekitaldi-row hover:bg-gray-50 transition-colors cursor-pointer md:cursor-default"
+                        >
                             <!-- Irudia (Ordenador) -->
                             <td class="hidden md:table-cell px-6 py-3.5 text-sm font-normal text-gray-500 text-center whitespace-nowrap">
                                 @if($ekitaldia->irudia)
@@ -67,7 +107,7 @@
 
                             <!-- Data / Ordua -->
                             <td class="px-3 sm:px-6 py-3.5 text-sm font-normal text-gray-500 whitespace-nowrap">
-                                <div>{{ \Carbon\Carbon::parse($ekitaldia->ekitaldi_data)->format('Y-m-d') }}</div>
+                                <div>{{ $dataFormatted }}</div>
                                 <div class="text-xs text-gray-400">{{ $ekitaldia->ordua }}</div>
                             </td>
 
@@ -78,12 +118,12 @@
 
                             <!-- Prezioa (Ordenador) -->
                             <td class="hidden md:table-cell px-6 py-3.5 text-sm font-normal text-gray-500 text-right whitespace-nowrap">
-                                {{ number_format($ekitaldia->prezio_sarrera, 2) }} €
+                                {{ $prezioFormatted }} €
                             </td>
 
                             <!-- Egoera -->
                             <td class="px-3 sm:px-6 py-3.5 text-sm font-normal text-gray-500 whitespace-nowrap">
-                                {{ ucfirst($ekitaldia->egoera->value ?? $ekitaldia->egoera) }}
+                                {{ ucfirst($egoeraBalioa) }}
                             </td>
 
                             <!-- Ekintzak (Ordenador) -->
@@ -116,7 +156,7 @@
                                             @endif
                                             <div>
                                                 <div><span class="font-semibold text-gray-700">Aforoa:</span> {{ $ekitaldia->aforo_librea }} / {{ $ekitaldia->aforo }}</div>
-                                                <div><span class="font-semibold text-gray-700">Prezioa:</span> {{ number_format($ekitaldia->prezio_sarrera, 2) }} €</div>
+                                                <div><span class="font-semibold text-gray-700">Prezioa:</span> {{ $prezioFormatted }} €</div>
                                             </div>
                                         </div>
                                     </div>
@@ -140,6 +180,13 @@
                             </td>
                         </tr>
                     @endforeach
+
+                    <!-- Mezua emaitzarik ez dagoenean -->
+                    <tr id="no-ekitaldi-results-row" class="hidden">
+                        <td colspan="8" class="px-6 py-10 text-center text-sm text-gray-500">
+                            Ez da bilaketarekin bat datorren ekitaldirik aurkitu.
+                        </td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -158,6 +205,51 @@
             if (chevron) {
                 chevron.classList.toggle('rotate-180');
             }
+        }
+
+        function normalizeText(text) {
+            return text
+                .toLowerCase()
+                .normalize('NFD')
+                .replace(/[\u0300-\u036f]/g, '');
+        }
+
+        function filterEkitaldiak() {
+            const input = document.getElementById('ekitaldi-search-input');
+            const clearBtn = document.getElementById('clear-ekitaldi-search-btn');
+            const query = normalizeText(input.value.trim());
+            const rows = document.querySelectorAll('.ekitaldi-row');
+            const noResultsRow = document.getElementById('no-ekitaldi-results-row');
+            let visibleCount = 0;
+
+            clearBtn.classList.toggle('hidden', query.length === 0);
+
+            rows.forEach(row => {
+                const searchData = normalizeText(row.getAttribute('data-search') || '');
+                const ekitaldiId = row.getAttribute('data-ekitaldi-id');
+                const actionsRow = document.getElementById('ekitaldi-actions-row-' + ekitaldiId);
+                const chevron = document.getElementById('ekitaldi-chevron-' + ekitaldiId);
+
+                if (searchData.includes(query)) {
+                    row.classList.remove('hidden');
+                    visibleCount++;
+                } else {
+                    row.classList.add('hidden');
+                    if (actionsRow) actionsRow.classList.add('hidden');
+                    if (chevron) chevron.classList.remove('rotate-180');
+                }
+            });
+
+            if (noResultsRow) {
+                noResultsRow.classList.toggle('hidden', visibleCount > 0);
+            }
+        }
+
+        function clearEkitaldiSearch() {
+            const input = document.getElementById('ekitaldi-search-input');
+            input.value = '';
+            filterEkitaldiak();
+            input.focus();
         }
     </script>
 </body>
