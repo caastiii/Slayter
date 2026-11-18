@@ -91,6 +91,6 @@ Ondorengo eranskinak errepositorioan daude ikusgai:
 - [Eranskina: Talde kontratua](Eranskinak/Slayter_TaldeKontratua.pdf)
 - [Web orrialdea publikatzeko pausuak](Eranskinak/Slayter_web_aplikazioaren_hedapena_egiteko_pausuak.pdf)
 - [Erabiltzaile eta administradoreen loginak](Eranskinak/Slayter_Erabiltzaile_Eta_Administradoreen_Loginak.pdf)
-- [Aurkezpena](Eranskinak/Slayter_Aurkezpena.pptx)
+- [Aurkezpena](Eranskinak/Slayter_Aurkezpena.pdf)
 
 _©️ 2026 Slayter._
