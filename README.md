@@ -70,8 +70,7 @@ Erronka honen bitartez, bezeroaren eskakizun nagusiei arrakastaz erantzutea lort
 - **Tipografia:** Google Fonts
 - **Koloreak:** HTML Color Codes
 - **Ikonoak:** Lucide Icons
-- **Prototipadoa:** Figma
-- **Laguntza / AA:** Google Gemini
+- **Argazkiak eta Erroreen Konponketarako:** Google Gemini
 
 ## 8. Edukien lizentzia
 
